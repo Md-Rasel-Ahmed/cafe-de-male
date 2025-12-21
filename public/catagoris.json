@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Beverages"
+  },
+  {
+    "id": 2,
+    "name": "Desserts"
+  },
+  {
+    "id": 3,
+    "name": "Healthy_Mornings"
+  },
+  {
+    "id": 4,
+    "name": "Soups"
+  },
+  {
+    "id": 5,
+    "name": "Chinese"
+  },
+  {
+    "id": 6,
+    "name": "Burgers"
+  },
+  {
+    "id": 7,
+    "name": "Pizza"
+  }
+]

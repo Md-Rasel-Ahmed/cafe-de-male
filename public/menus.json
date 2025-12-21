@@ -1,0 +1,734 @@
+[
+  {
+    "id": 1,
+    "name": "Espresso",
+    "category": "Beverages",
+    "price": 12.0,
+    "spice_level": "None",
+    "img": "/menus-img/Espresso.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Coffee Beans", "img": "/images/ingredients/coffee-beans.jpg" },
+      { "id": 2, "name": "Water", "img": "/images/ingredients/water.jpg" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Cappuccino",
+    "category": "Beverages",
+    "price": 16.0,
+    "spice_level": "None",
+    "img": "/menus-img/cappuccino.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Espresso", "img": "/images/ingredients/espresso.jpg" },
+      { "id": 2, "name": "Milk Foam", "img": "/images/ingredients/milk.jpg" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Café Latte",
+    "category": "Beverages",
+    "price": 17.0,
+    "spice_level": "None",
+    "img": "/menus-img/latte.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Espresso", "img": "/images/ingredients/espresso.jpg" },
+      { "id": 2, "name": "Steamed Milk", "img": "/images/ingredients/milk.jpg" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Americano",
+    "category": "Beverages",
+    "price": 14.0,
+    "spice_level": "None",
+    "img": "/menus-img/Americano.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Espresso", "img": "/images/ingredients/espresso.jpg" },
+      { "id": 2, "name": "Hot Water", "img": "/images/ingredients/water.jpg" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Hot Chocolate",
+    "category": "Beverages",
+    "price": 18.0,
+    "spice_level": "None",
+    "img": "/menus-img/hot-coffe.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chocolate", "img": "/images/ingredients/chocolate.jpg" },
+      { "id": 2, "name": "Milk", "img": "/images/ingredients/milk.jpg" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Black Tea",
+    "category": "Beverages",
+    "price": 10.0,
+    "spice_level": "None",
+    "img": "/menus-img/black-tea.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Tea Leaves", "img": "/images/ingredients/tea.jpg" },
+      { "id": 2, "name": "Water", "img": "/images/ingredients/water.jpg" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Milk Tea",
+    "category": "Beverages",
+    "price": 12.0,
+    "spice_level": "None",
+    "img": "/menus-img/mil-tea.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Tea Leaves", "img": "/images/ingredients/tea.jpg" },
+      { "id": 2, "name": "Milk", "img": "/images/ingredients/milk.jpg" }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Fresh Lime Juice",
+    "category": "Beverages",
+    "price": 15.0,
+    "spice_level": "None",
+"img": "/menus-img/Fresh Lime Juice.jpg",    "ingredients": [
+      { "id": 1, "name": "Lime", "img": "/images/ingredients/lime.jpg" },
+      { "id": 2, "name": "Sugar", "img": "/images/ingredients/sugar.jpg" },
+      { "id": 3, "name": "Water", "img": "/images/ingredients/water.jpg" }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Orange Juice",
+    "category": "Beverages",
+    "price": 16.0,
+    "spice_level": "None",
+    "img": "/menus-img/Orange Juice.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Orange", "img": "/images/ingredients/orange.jpg" }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Mineral Water",
+    "category": "Beverages",
+    "price": 6.0,
+    "spice_level": "None",
+    "img": "/menus-img/Mineral Water.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Water", "img": "/images/ingredients/water.jpg" }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Chocolate Brownie",
+    "category": "Desserts",
+    "price": 21.0,
+    "spice_level": "None",
+    "img": "/menus-img/Chocolate Brownie.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chocolate", "img": "/images/ingredients/chocolate.jpg" },
+      { "id": 2, "name": "Butter", "img": "/images/ingredients/butter.jpg" },
+      { "id": 3, "name": "Flour", "img": "/images/ingredients/flour.jpg" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Chocolate Brownie with Ice Cream",
+    "category": "Desserts",
+    "price": 26.0,
+    "spice_level": "None",
+    "img": "/menus-img/Chocolate Brownie with Ice Cream.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chocolate Brownie", "img": "/images/ingredients/brownie.jpg" },
+      { "id": 2, "name": "Vanilla Ice Cream", "img": "/images/ingredients/vanilla.jpg" }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Vanilla Ice Cream",
+    "category": "Desserts",
+    "price": 18.0,
+    "spice_level": "None",
+    "img": "/menus-img/Vanilla Ice Cream.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Milk", "img": "/images/ingredients/milk.jpg" },
+      { "id": 2, "name": "Vanilla", "img": "/images/ingredients/vanilla.jpg" }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Chocolate Ice Cream",
+    "category": "Desserts",
+    "price": 18.0,
+    "spice_level": "None",
+    "img": "/menus-img/Chocolate Ice Cream.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chocolate", "img": "/images/ingredients/chocolate.jpg" },
+      { "id": 2, "name": "Milk", "img": "/images/ingredients/milk.jpg" }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Fruit Salad",
+    "category": "Desserts",
+    "price": 24.0,
+    "spice_level": "None",
+    "img": "/menus-img/Fruit Salad.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Apple", "img": "/images/ingredients/apple.jpg" },
+      { "id": 2, "name": "Banana", "img": "/images/ingredients/banana.jpg" },
+      { "id": 3, "name": "Seasonal Fruits", "img": "/images/ingredients/fruits.jpg" }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Caramel Custard",
+    "category": "Desserts",
+    "price": 22.0,
+    "spice_level": "None",
+    "img": "/menus-img/Caramel Custard.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Milk", "img": "/images/ingredients/milk.jpg" },
+      { "id": 2, "name": "Egg", "img": "/images/ingredients/egg.jpg" },
+      { "id": 3, "name": "Caramel Sugar", "img": "/images/ingredients/sugar.jpg" }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Cheese Cake",
+    "category": "Desserts",
+    "price": 32.0,
+    "spice_level": "None",
+    "img": "/menus-img/Cheese Cake.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Cream Cheese", "img": "/images/ingredients/cream-cheese.jpg" },
+      { "id": 2, "name": "Butter Biscuit Base", "img": "/images/ingredients/biscuit.jpg" }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Pancake with Honey",
+    "category": "Desserts",
+    "price": 25.0,
+    "spice_level": "None",
+    "img": "/menus-img/Pancake with Honey.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Flour", "img": "/images/ingredients/flour.jpg" },
+      { "id": 2, "name": "Honey", "img": "/images/ingredients/honey.jpg" }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Maldivian Breakfast",
+    "category": "Healthy_Mornings",
+    "price": 61.88,
+    "spice_level": "Medium",
+    "img": "/images/menu/maldivian-breakfast.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Roshi", "img": "/images/ingredients/roshi.jpg" },
+      { "id": 2, "name": "Tuna", "img": "/images/ingredients/tuna.jpg" },
+      { "id": 3, "name": "Onion", "img": "/images/ingredients/onion.jpg" },
+      { "id": 4, "name": "Chili", "img": "/images/ingredients/chili.jpg" }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Mas Riha & Roshi",
+    "category": "Healthy_Mornings",
+    "price": 68.0,
+    "spice_level": "Hot",
+    "img": "/images/menu/mas-riha.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Fish Curry", "img": "/images/ingredients/fish-curry.jpg" },
+      { "id": 2, "name": "Roshi", "img": "/images/ingredients/roshi.jpg" },
+      { "id": 3, "name": "Coconut Milk", "img": "/images/ingredients/coconut-milk.jpg" }
+    ]
+  },
+   {"id": 21,
+    "name": "Egg Omelette with Toast",
+    "category": "Healthy_Mornings",
+    "price": 55.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/omelette-toast.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Egg", "img": "/images/ingredients/egg.jpg" },
+      { "id": 2, "name": "Bread Toast", "img": "/images/ingredients/bread.jpg" },
+      { "id": 3, "name": "Butter", "img": "/images/ingredients/butter.jpg" }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Scrambled Eggs",
+    "category": "Healthy_Mornings",
+    "price": 52.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/scrambled-eggs.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Egg", "img": "/images/ingredients/egg.jpg" },
+      { "id": 2, "name": "Milk", "img": "/images/ingredients/milk.jpg" },
+      { "id": 3, "name": "Butter", "img": "/images/ingredients/butter.jpg" }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Pancake with Honey",
+    "category": "Healthy_Mornings",
+    "price": 25.0,
+    "spice_level": "None",
+    "img": "/images/menu/pancake-honey.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Flour", "img": "/images/ingredients/flour.jpg" },
+      { "id": 2, "name": "Honey", "img": "/images/ingredients/honey.jpg" },
+      { "id": 3, "name": "Butter", "img": "/images/ingredients/butter.jpg" }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "French Toast",
+    "category": "Healthy_Mornings",
+    "price": 28.0,
+    "spice_level": "None",
+    "img": "/images/menu/french-toast.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Bread", "img": "/images/ingredients/bread.jpg" },
+      { "id": 2, "name": "Egg", "img": "/images/ingredients/egg.jpg" },
+      { "id": 3, "name": "Milk", "img": "/images/ingredients/milk.jpg" }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Fruit Bowl",
+    "category": "Healthy_Mornings",
+    "price": 24.0,
+    "spice_level": "None",
+    "img": "/images/menu/fruit-bowl.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Apple", "img": "/images/ingredients/apple.jpg" },
+      { "id": 2, "name": "Banana", "img": "/images/ingredients/banana.jpg" },
+      { "id": 3, "name": "Seasonal Fruits", "img": "/images/ingredients/fruits.jpg" }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Yogurt with Granola",
+    "category": "Healthy_Mornings",
+    "price": 29.0,
+    "spice_level": "None",
+    "img": "/images/menu/yogurt-granola.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Yogurt", "img": "/images/ingredients/yogurt.jpg" },
+      { "id": 2, "name": "Granola", "img": "/images/ingredients/granola.jpg" },
+      { "id": 3, "name": "Honey", "img": "/images/ingredients/honey.jpg" }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Cream of Chicken Soup",
+    "category": "Soups",
+    "price": 61.88,
+    "spice_level": "Mild",
+    "img": "/images/menu/cream-chicken-soup.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Fresh Cream", "img": "/images/ingredients/cream.jpg" },
+      { "id": 3, "name": "Butter", "img": "/images/ingredients/butter.jpg" }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Sweet Corn Soup",
+    "category": "Soups",
+    "price": 55.0,
+    "spice_level": "None",
+    "img": "/images/menu/sweet-corn-soup.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Sweet Corn", "img": "/images/ingredients/corn.jpg" },
+      { "id": 2, "name": "Cream", "img": "/images/ingredients/cream.jpg" }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Hot & Sour Soup",
+    "category": "Soups",
+    "price": 58.0,
+    "spice_level": "Hot",
+    "img": "/images/menu/hot-sour-soup.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Vinegar", "img": "/images/ingredients/vinegar.jpg" },
+      { "id": 3, "name": "Chili", "img": "/images/ingredients/chili.jpg" }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Vegetable Soup",
+    "category": "Soups",
+    "price": 50.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/vegetable-soup.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Carrot", "img": "/images/ingredients/carrot.jpg" },
+      { "id": 2, "name": "Beans", "img": "/images/ingredients/beans.jpg" },
+      { "id": 3, "name": "Cabbage", "img": "/images/ingredients/cabbage.jpg" }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Tomato Soup",
+    "category": "Soups",
+    "price": 48.0,
+    "spice_level": "None",
+    "img": "/images/menu/tomato-soup.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Tomato", "img": "/images/ingredients/tomato.jpg" },
+      { "id": 2, "name": "Cream", "img": "/images/ingredients/cream.jpg" }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Mushroom Soup",
+    "category": "Soups",
+    "price": 56.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/mushroom-soup.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Mushroom", "img": "/images/ingredients/mushroom.jpg" },
+      { "id": 2, "name": "Cream", "img": "/images/ingredients/cream.jpg" }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Fried Rice with Chicken",
+    "category": "Chinese",
+    "price": 50.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/fried-rice-chicken.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Rice", "img": "/images/ingredients/rice.jpg" },
+      { "id": 2, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 3, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" },
+      { "id": 4, "name": "Vegetables", "img": "/images/ingredients/vegetables.jpg" }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Sweet and Sour Chicken",
+    "category": "Chinese",
+    "price": 60.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/sweet-sour-chicken.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Bell Pepper", "img": "/images/ingredients/bell-pepper.jpg" },
+      { "id": 3, "name": "Pineapple", "img": "/images/ingredients/pineapple.jpg" },
+      { "id": 4, "name": "Sweet & Sour Sauce", "img": "/images/ingredients/sauce.jpg" }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Kung Pao Chicken",
+    "category": "Chinese",
+    "price": 65.0,
+    "spice_level": "Hot",
+    "img": "/images/menu/kung-pao-chicken.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Peanuts", "img": "/images/ingredients/peanuts.jpg" },
+      { "id": 3, "name": "Chili", "img": "/images/ingredients/chili.jpg" },
+      { "id": 4, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Vegetable Chow Mein",
+    "category": "Chinese",
+    "price": 55.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/vegetable-chow-mein.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Noodles", "img": "/images/ingredients/noodles.jpg" },
+      { "id": 2, "name": "Vegetables", "img": "/images/ingredients/vegetables.jpg" },
+      { "id": 3, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Spring Rolls",
+    "category": "Chinese",
+    "price": 30.0,
+    "spice_level": "None",
+    "img": "/images/menu/spring-rolls.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Cabbage", "img": "/images/ingredients/cabbage.jpg" },
+      { "id": 2, "name": "Carrot", "img": "/images/ingredients/carrot.jpg" },
+      { "id": 3, "name": "Wrapper", "img": "/images/ingredients/wrapper.jpg" }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Chicken Manchurian",
+    "category": "Chinese",
+    "price": 62.0,
+    "spice_level": "Hot",
+    "img": "/images/menu/chicken-manchurian.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Garlic", "img": "/images/ingredients/garlic.jpg" },
+      { "id": 3, "name": "Chili Sauce", "img": "/images/ingredients/chili-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Fried Noodles",
+    "category": "Chinese",
+    "price": 50.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/fried-noodles.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Noodles", "img": "/images/ingredients/noodles.jpg" },
+      { "id": 2, "name": "Vegetables", "img": "/images/ingredients/vegetables.jpg" },
+      { "id": 3, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Chili Chicken",
+    "category": "Chinese",
+    "price": 65.0,
+    "spice_level": "Hot",
+    "img": "/images/menu/chili-chicken.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Chili", "img": "/images/ingredients/chili.jpg" },
+      { "id": 3, "name": "Garlic", "img": "/images/ingredients/garlic.jpg" }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Egg Fried Rice",
+    "category": "Chinese",
+    "price": 50.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/egg-fried-rice.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Rice", "img": "/images/ingredients/rice.jpg" },
+      { "id": 2, "name": "Egg", "img": "/images/ingredients/egg.jpg" },
+      { "id": 3, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Vegetable Spring Rolls",
+    "category": "Chinese",
+    "price": 28.0,
+    "spice_level": "None",
+    "img": "/images/menu/vegetable-spring-rolls.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Cabbage", "img": "/images/ingredients/cabbage.jpg" },
+      { "id": 2, "name": "Carrot", "img": "/images/ingredients/carrot.jpg" },
+      { "id": 3, "name": "Wrapper", "img": "/images/ingredients/wrapper.jpg" }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Honey Chicken",
+    "category": "Chinese",
+    "price": 60.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/honey-chicken.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Honey", "img": "/images/ingredients/honey.jpg" },
+      { "id": 3, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Vegetable Fried Rice",
+    "category": "Chinese",
+    "price": 50.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/vegetable-fried-rice.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Rice", "img": "/images/ingredients/rice.jpg" },
+      { "id": 2, "name": "Vegetables", "img": "/images/ingredients/vegetables.jpg" },
+      { "id": 3, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Garlic Noodles",
+    "category": "Chinese",
+    "price": 55.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/garlic-noodles.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Noodles", "img": "/images/ingredients/noodles.jpg" },
+      { "id": 2, "name": "Garlic", "img": "/images/ingredients/garlic.jpg" },
+      { "id": 3, "name": "Soy Sauce", "img": "/images/ingredients/soy-sauce.jpg" }
+    ]
+  },
+  
+  {
+    "id": 501,
+    "name": "Classic Chicken Burger",
+    "category": "Burgers",
+    "price": 78.54,
+    "spice_level": "Medium",
+    "img": "/images/menu/classic-chicken-burger.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken Patty", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Burger Bun", "img": "/images/ingredients/bun.jpg" },
+      { "id": 3, "name": "Lettuce", "img": "/images/ingredients/lettuce.jpg" },
+      { "id": 4, "name": "Mayonnaise", "img": "/images/ingredients/mayo.jpg" }
+    ]
+  },
+  {
+    "id": 502,
+    "name": "Chicken Cheese Burger",
+    "category": "Burgers",
+    "price": 82.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/chicken-cheese-burger.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken Patty", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Cheese Slice", "img": "/images/ingredients/cheese.jpg" },
+      { "id": 3, "name": "Burger Bun", "img": "/images/ingredients/bun.jpg" }
+    ]
+  },
+  {
+    "id": 503,
+    "name": "Spicy Chicken Burger",
+    "category": "Burgers",
+    "price": 84.0,
+    "spice_level": "Hot",
+    "img": "/images/menu/spicy-chicken-burger.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Spicy Chicken Patty", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Chili Sauce", "img": "/images/ingredients/chili.jpg" },
+      { "id": 3, "name": "Burger Bun", "img": "/images/ingredients/bun.jpg" }
+    ]
+  },
+  {
+    "id": 504,
+    "name": "Beef Burger",
+    "category": "Burgers",
+    "price": 85.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/beef-burger.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Beef Patty", "img": "/images/ingredients/beef.jpg" },
+      { "id": 2, "name": "Cheese", "img": "/images/ingredients/cheese.jpg" },
+      { "id": 3, "name": "Burger Bun", "img": "/images/ingredients/bun.jpg" }
+    ]
+  },
+  {
+    "id": 505,
+    "name": "Double Beef Burger",
+    "category": "Burgers",
+    "price": 95.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/double-beef-burger.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Double Beef Patty", "img": "/images/ingredients/beef.jpg" },
+      { "id": 2, "name": "Cheese", "img": "/images/ingredients/cheese.jpg" },
+      { "id": 3, "name": "Burger Bun", "img": "/images/ingredients/bun.jpg" }
+    ]
+  },
+  {
+    "id": 506,
+    "name": "Veggie Burger",
+    "category": "Burgers",
+    "price": 72.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/veggie-burger.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Vegetable Patty", "img": "/images/ingredients/vegetable-patty.jpg" },
+      { "id": 2, "name": "Lettuce", "img": "/images/ingredients/lettuce.jpg" },
+      { "id": 3, "name": "Burger Bun", "img": "/images/ingredients/bun.jpg" }
+    ]
+  },
+  
+  {
+    "id": 601,
+    "name": "Margherita Pizza",
+    "category": "Pizza",
+    "price": 120.0,
+    "spice_level": "None",
+    "img": "/images/menu/margherita-pizza.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Pizza Dough", "img": "/images/ingredients/dough.jpg" },
+      { "id": 2, "name": "Tomato Sauce", "img": "/images/ingredients/tomato-sauce.jpg" },
+      { "id": 3, "name": "Mozzarella Cheese", "img": "/images/ingredients/cheese.jpg" }
+    ]
+  },
+  {
+    "id": 602,
+    "name": "Chicken Pizza",
+    "category": "Pizza",
+    "price": 145.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/chicken-pizza.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "Cheese", "img": "/images/ingredients/cheese.jpg" },
+      { "id": 3, "name": "Tomato Sauce", "img": "/images/ingredients/tomato-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 603,
+    "name": "Pepperoni Pizza",
+    "category": "Pizza",
+    "price": 150.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/pepperoni-pizza.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Pepperoni", "img": "/images/ingredients/pepperoni.jpg" },
+      { "id": 2, "name": "Mozzarella Cheese", "img": "/images/ingredients/cheese.jpg" },
+      { "id": 3, "name": "Tomato Sauce", "img": "/images/ingredients/tomato-sauce.jpg" }
+    ]
+  },
+  {
+    "id": 604,
+    "name": "Seafood Pizza",
+    "category": "Pizza",
+    "price": 168.98,
+    "spice_level": "Medium",
+    "img": "/images/menu/seafood-pizza.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Prawns", "img": "/images/ingredients/prawns.jpg" },
+      { "id": 2, "name": "Cuttlefish", "img": "/images/ingredients/cuttlefish.jpg" },
+      { "id": 3, "name": "Mozzarella Cheese", "img": "/images/ingredients/cheese.jpg" }
+    ]
+  },
+  {
+    "id": 605,
+    "name": "BBQ Chicken Pizza",
+    "category": "Pizza",
+    "price": 155.0,
+    "spice_level": "Medium",
+    "img": "/images/menu/bbq-chicken-pizza.jpg",
+    "ingredients": [
+      { "id": 1, "name": "BBQ Chicken", "img": "/images/ingredients/chicken.jpg" },
+      { "id": 2, "name": "BBQ Sauce", "img": "/images/ingredients/bbq-sauce.jpg" },
+      { "id": 3, "name": "Cheese", "img": "/images/ingredients/cheese.jpg" }
+    ]
+  },
+  {
+    "id": 606,
+    "name": "Vegetable Pizza",
+    "category": "Pizza",
+    "price": 130.0,
+    "spice_level": "Mild",
+    "img": "/images/menu/vegetable-pizza.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Bell Pepper", "img": "/images/ingredients/bell-pepper.jpg" },
+      { "id": 2, "name": "Olives", "img": "/images/ingredients/olives.jpg" },
+      { "id": 3, "name": "Cheese", "img": "/images/ingredients/cheese.jpg" }
+    ]
+  }
+
+
+
+
+]
+
