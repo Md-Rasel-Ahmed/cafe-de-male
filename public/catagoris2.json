@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "name": "Breakfast - Maldivian Delights"
+  },
+  {
+    "id": 2,
+    "name": "Breakfast - Healthy Mornings"
+  },
+  {
+    "id": 3,
+    "name": "Breakfast - Add Ons"
+  },
+  {
+    "id": 4,
+    "name": "Breakfast Bonanza"
+  },
+  {
+    "id": 5,
+    "name": "Soups"
+  },
+  {
+    "id": 6,
+    "name": "Salads"
+  },
+  {
+    "id": 7,
+    "name": "Chips & Snacks"
+  },
+  {
+    "id": 8,
+    "name": "Tortilla & Sandwiches"
+  },
+  
+  {
+    "id": 10,
+    "name": "Submarines & Burgers"
+  },
+ 
+  {
+    "id": 12,
+    "name": "Mains - Rice"
+  },
+  {
+    "id": 13,
+    "name": "Mains - Noodles"
+  },
+  {
+    "id": 14,
+    "name": "Mains - Kottu Roshi & Side Dishes"
+  },
+ 
+  {
+    "id": 16,
+    "name": "Chicken Specials"
+  },
+  {
+    "id": 17,
+    "name": "Beef Specials"
+  },
+  {
+    "id": 18,
+    "name": "Thai Specials"
+  },
+  {
+    "id": 19,
+    "name": "Italian Corner - Pasta"
+  },
+  {
+    "id": 20,
+    "name": "Pizza"
+  },
+  {
+    "id": 21,
+    "name": "It's A Set Deal"
+  },
+  {
+    "id": 22,
+    "name": "Seafood"
+  },
+  {
+    "id": 23,
+    "name": "Desserts"
+  }
+]

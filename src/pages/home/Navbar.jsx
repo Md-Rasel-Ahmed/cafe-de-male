@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 import { CartProviderContext } from "../../Providers/CartProvider";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { carts } = useContext(CartProviderContext);
+  const { user } = useContext(AuthContext);
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
 
@@ -146,7 +148,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-
+          <p>{user?.email}</p>
           {/* Login */}
           <Link to="/login" className="btn btn-primary btn-sm">
             Login

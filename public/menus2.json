@@ -1,0 +1,905 @@
+{
+  "cafeName": "Café de Malé",
+  "currency": "MVR",
+  "note": "Price does not include GST & 10% Service Charge",
+  "menu": [
+    {
+      "category": "Breakfast - Maldivian Delights",
+      "items": [
+        {"id": 1, "name": "Maldivian roshi & mashuni", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Maldivian+Roshi+Mashuni"},
+        {"id": 2, "name": "Mas riha and Roshi", "price": 68.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Mas+Riha+Roshi"},
+        {"id": 3, "name": "Maldivian kulhimas and Roshi", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Kulhimas+Roshi"},
+        {"id": 4, "name": "Disk & kulhimas", "price": 61.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Disk+Kulhimas"},
+        {"id": 5, "name": "Maldivian mixed breakfast", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Maldivian+Mixed+Breakfast"},
+        {"id": 6, "name": "Devilled sausage breakfast", "price": 73.78, "description": "", "img": "https://via.placeholder.com/400x300?text=Devilled+Sausage+Breakfast"}
+      ]
+    },
+    {
+      "category": "Breakfast - Healthy Mornings",
+      "items": [
+        {"id": 7, "name": "Healthy breakfast", "price": 85.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Healthy+Breakfast"},
+        {"id": 8, "name": "Muesli breakfast", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Muesli+Breakfast"},
+        {"id": 9, "name": "Banana and Berries Mix with oats", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Banana+Berries+Oats"}
+      ]
+    },
+    {
+      "category": "Breakfast - Add Ons",
+      "items": [
+        {"id": 10, "name": "Roshi", "price": 3.57, "description": "", "img": "https://via.placeholder.com/400x300?text=Roshi"},
+        {"id": 11, "name": "Sausage", "price": 8.33, "description": "", "img": "https://via.placeholder.com/400x300?text=Sausage"},
+        {"id": 12, "name": "Disk", "price": 11.9, "description": "", "img": "https://via.placeholder.com/400x300?text=Disk"},
+        {"id": 13, "name": "Boiled Egg", "price": 9.52, "description": "", "img": "https://via.placeholder.com/400x300?text=Boiled+Egg"},
+        {"id": 14, "name": "Rihaakuru", "price": 20.23, "description": "", "img": "https://via.placeholder.com/400x300?text=Rihaakuru"},
+        {"id": 15, "name": "Omelette include basic filling", "price": 23.80, "description": "", "img": "https://via.placeholder.com/400x300?text=Basic+Omelette"},
+        {"id": 16, "name": "Omelette Cheese filled", "price": 35.7, "description": "", "img": "https://via.placeholder.com/400x300?text=Cheese+Omelette"},
+        {"id": 17, "name": "Omelette CDM special", "price": 85.68, "description": "", "img": "https://via.placeholder.com/400x300?text=CDM+Special+Omelette"},
+        {"id": 18, "name": "Omelette Meat filled", "price": 41.65, "description": "", "img": "https://via.placeholder.com/400x300?text=Meat+Omelette"},
+        {"id": 19, "name": "Mixed omelette", "price": 32.13, "description": "", "img": "https://via.placeholder.com/400x300?text=Mixed+Omelette"},
+        {"id": 20, "name": "Garlic & spinach omelette", "price": 32.13, "description": "", "img": "https://via.placeholder.com/400x300?text=Garlic+Spinach+Omelette"},
+        {"id": 21, "name": "Three egg omelette with cheese", "price": 44.03, "description": "", "img": "https://via.placeholder.com/400x300?text=Three+Egg+Cheese+Omelette"}
+      ]
+    },
+    {
+      "category": "Breakfast Bonanza",
+      "items": [
+        {"id": 22, "name": "Pancake Breakfast", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Pancake+Breakfast"},
+        {"id": 23, "name": "Avocado breakfast", "price": 86.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Avocado+Breakfast"},
+        {"id": 24, "name": "Egg benedict breakfast", "price": 85.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Egg+Benedict"},
+        {"id": 25, "name": "English breakfast", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=English+Breakfast"},
+        {"id": 26, "name": "Continental Breakfast", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Continental+Breakfast"},
+        {"id": 27, "name": "Bowl of cereal with cornflakes", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Cornflakes"},
+        {"id": 28, "name": "Muesli breakfast", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Muesli"},
+        {"id": 29, "name": "Banana and Berries mix with oats", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Banana+Berries"},
+        {"id": 30, "name": "Healthy breakfast", "price": 85.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Healthy+Breakfast"}
+      ]
+    },
+    {
+      "category": "Soups",
+      "items": [
+        {"id": 31, "name": "Cream of Chicken soup", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Soup"},
+        {"id": 32, "name": "Tom Yum soup (single)", "price": 86.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Tom+Yum"},
+        {"id": 33, "name": "Tuna Noodles soup", "price": 60.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Noodle+Soup"},
+        {"id": 34, "name": "Spicy Seafood soup", "price": 71.40, "description": "", "img": "https://via.placeholder.com/400x300?text=Spicy+Seafood+Soup"},
+        {"id": 35, "name": "Cream of broccoli soup", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Broccoli+Soup"},
+        {"id": 36, "name": "Cream of Tomato soup", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Tomato+Soup"},
+        {"id": 37, "name": "Cream of Pumpkin soup", "price": 61.88, "description": "", "img": "https://via.placeholder.com/400x300?text=Pumpkin+Soup"},
+        {"id": 38, "name": "Chicken and Corn soup", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Corn+Soup"},
+        {"id": 39, "name": "Tom Yum Thai", "price": 87.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Tom+Yum+Thai"}
+      ]
+    },
+    {
+      "category": "Salads",
+      "items": [
+        {"id": 40, "name": "Tuna salad", "price": 73.78, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Salad"},
+        {"id": 41, "name": "Caesar Salad", "price": 76.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Caesar+Salad"},
+        {"id": 42, "name": "Grilled Chicken salad", "price": 86.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Grilled+Chicken+Salad"},
+        {"id": 43, "name": "Chunky Greek salad", "price": 79.73, "description": "", "img": "https://via.placeholder.com/400x300?text=Greek+Salad"},
+        {"id": 44, "name": "Nicosia salad", "price": 79.73, "description": "", "img": "https://via.placeholder.com/400x300?text=Nicosia+Salad"},
+        {"id": 45, "name": "CDM special salad", "price": 103.53, "description": "", "img": "https://via.placeholder.com/400x300?text=CDM+Special+Salad"},
+        {"id": 46, "name": "Thai beef salad", "price": 97.58, "description": "", "img": "https://via.placeholder.com/400x300?text=Thai+Beef+Salad"},
+        {"id": 47, "name": "Tomato & Mozzarella salad", "price": 83.30, "description": "", "img": "https://via.placeholder.com/400x300?text=Tomato+Mozzarella"},
+        {"id": 48, "name": "Garden salad", "price": 83.30, "description": "", "img": "https://via.placeholder.com/400x300?text=Garden+Salad"},
+        {"id": 49, "name": "Chicken and avocado salad", "price": 92.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Avocado+Salad"}
+      ]
+    },
+    {
+      "category": "Chips & Snacks",
+      "items": [
+        {"id": 50, "name": "Fish and chips", "price": 80.92, "description": "", "img": "https://via.placeholder.com/400x300?text=Fish+Chips"},
+        {"id": 51, "name": "Chicken and chips", "price": 80.92, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Chips"},
+        {"id": 52, "name": "White fish and chips", "price": 130.9, "description": "", "img": "https://via.placeholder.com/400x300?text=White+Fish+Chips"},
+        {"id": 53, "name": "Loaded fries served with Gherkin sauce", "price": 71.40, "description": "", "img": "https://via.placeholder.com/400x300?text=Loaded+Fries"},
+        {"id": 54, "name": "Potato wedges served with Gherkin sauce", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Potato+Wedges"},
+        {"id": 55, "name": "Cheese chicken with chips", "price": 97.58, "description": "", "img": "https://via.placeholder.com/400x300?text=Cheese+Chicken+Chips"},
+        {"id": 56, "name": "Chicken popcorn served with pickle sauce", "price": 79.73, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Popcorn"},
+        {"id": 57, "name": "French fries", "price": 50.00, "description": "", "img": "https://via.placeholder.com/400x300?text=French+Fries"},
+        {"id": 58, "name": "Fishermen's Basket (Deep fried Tuna, Cuttle fish and Prawns with fries and tartar sauce)", "price": 162.44, "description": "", "img": "https://via.placeholder.com/400x300?text=Fishermen+Basket"},
+        {"id": 59, "name": "Fental Prawn", "price": 142.8, "description": "", "img": "https://via.placeholder.com/400x300?text=Fental+Prawn"},
+        {"id": 60, "name": "Fried calamari rings", "price": 133.28, "description": "", "img": "https://via.placeholder.com/400x300?text=Calamari+Rings"},
+        {"id": 61, "name": "Coconut custard fry fish with potato wedges", "price": 102.34, "description": "", "img": "https://via.placeholder.com/400x300?text=Coconut+Custard+Fish"}
+      ]
+    },
+    {
+      "category": "Tortilla & Sandwiches",
+      "items": [
+        {"id": 62, "name": "Nachos platter (Chicken & Beef)", "price": 120.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Nachos+Platter"},
+        {"id": 63, "name": "Tuna Tortilla wrap served with fries", "price": 77.35, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Wrap"},
+        {"id": 64, "name": "Chicken Tortilla wrap served with fries", "price": 80.06, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Wrap"},
+        {"id": 65, "name": "Beef Tortilla wrap served with fries", "price": 89.96, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Wrap"},
+        {"id": 66, "name": "Octopus Tortilla wrap served with fries", "price": 91.96, "description": "", "img": "https://via.placeholder.com/400x300?text=Octopus+Wrap"},
+        {"id": 67, "name": "Chicken fajitas served with fries", "price": 78.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Fajitas"},
+        {"id": 68, "name": "Beef fajitas served with fries", "price": 78.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Fajitas"},
+        {"id": 69, "name": "BBQ fajitas served with fries", "price": 78.00, "description": "", "img": "https://via.placeholder.com/400x300?text=BBQ+Fajitas"},
+        {"id": 70, "name": "Tuna sandwich with fries", "price": 60.45, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Sandwich"},
+        {"id": 71, "name": "Tuna sandwich with cheese & fries", "price": 65.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Cheese+Sandwich"},
+        {"id": 72, "name": "Chicken sandwich with fries", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Sandwich"},
+        {"id": 73, "name": "Chicken sandwich with cheese & fries", "price": 72.59, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Cheese+Sandwich"},
+        {"id": 74, "name": "Beef Steak sandwich with fries", "price": 86.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Steak+Sandwich"},
+        {"id": 75, "name": "Club sandwich with fries", "price": 86.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Club+Sandwich"},
+        {"id": 76, "name": "Grilled Chicken sandwich with fries", "price": 83.30, "description": "", "img": "https://via.placeholder.com/400x300?text=Grilled+Chicken+Sandwich"},
+        {"id": 77, "name": "Cajun Chicken sandwich with fries", "price": 83.30, "description": "", "img": "https://via.placeholder.com/400x300?text=Cajun+Chicken+Sandwich"},
+        {"id": 78, "name": "Chicken & pineapple sandwich with fries", "price": 79.73, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Pineapple+Sandwich"}
+      ]
+    },
+    {
+      "category": "Submarines & Burgers",
+      "items": [
+        {"id": 79, "name": "Tuna submarine with fries", "price": 78.54, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Sub"},
+        {"id": 80, "name": "Chicken submarine with fries", "price": 85.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Sub"},
+        {"id": 81, "name": "Beef submarine with fries", "price": 87.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Sub"},
+        {"id": 82, "name": "Boava submarine with fries", "price": 93.40, "description": "", "img": "https://via.placeholder.com/400x300?text=Boava+Sub"},
+        {"id": 83, "name": "Half beef submarine", "price": 44.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Half+Beef+Sub"},
+        {"id": 84, "name": "Half Tuna submarine", "price": 32.13, "description": "", "img": "https://via.placeholder.com/400x300?text=Half+Tuna+Sub"},
+        {"id": 85, "name": "Half chicken submarine", "price": 44.03, "description": "", "img": "https://via.placeholder.com/400x300?text=Half+Chicken+Sub"},
+        {"id": 86, "name": "Half boava submarine", "price": 54.74, "description": "", "img": "https://via.placeholder.com/400x300?text=Half+Boava+Sub"},
+        {"id": 87, "name": "Chicken burger with fries", "price": 97.58, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Burger"},
+        {"id": 88, "name": "Crispy chicken burger with fries", "price": 103.53, "description": "", "img": "https://via.placeholder.com/400x300?text=Crispy+Chicken+Burger"},
+        {"id": 89, "name": "Beef burger with fries", "price": 102.34, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Burger"},
+        {"id": 90, "name": "CDM special burger with fries", "price": 109.48, "description": "", "img": "https://via.placeholder.com/400x300?text=CDM+Special+Burger"},
+        {"id": 91, "name": "Single crispy chicken burger", "price": 79.73, "description": "", "img": "https://via.placeholder.com/400x300?text=Single+Crispy+Chicken"}
+      ]
+    },
+    {
+      "category": "Mains - Rice",
+      "items": [
+        {"id": 92, "name": "Tuna fried rice", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Fried+Rice"},
+        {"id": 93, "name": "Chicken fried rice", "price": 70.35, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Fried+Rice"},
+        {"id": 94, "name": "Beef fried Rice", "price": 75.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Fried+Rice"},
+        {"id": 95, "name": "Valhomas fried rice", "price": 73.30, "description": "", "img": "https://via.placeholder.com/400x300?text=Valhomas+Fried+Rice"},
+        {"id": 96, "name": "Boava fried rice", "price": 89.25, "description": "", "img": "https://via.placeholder.com/400x300?text=Boava+Fried+Rice"},
+        {"id": 97, "name": "Mixed fried rice", "price": 89.86, "description": "", "img": "https://via.placeholder.com/400x300?text=Mixed+Fried+Rice"},
+        {"id": 98, "name": "Chicken kebab", "price": 97.05, "description": "served with garlic rice & salad", "img": "https://via.placeholder.com/400x300?text=Chicken+Kebab"},
+        {"id": 99, "name": "Chicken Ala Kiev", "price": 115.9, "description": "served with garlic rice or mashed potato & salad", "img": "https://via.placeholder.com/400x300?text=Chicken+Ala+Kiev"},
+        {"id": 100, "name": "Sweet & Sour chicken rice", "price": 97.04, "description": "served with white rice or garlic rice & salad", "img": "https://via.placeholder.com/400x300?text=Sweet+Sour+Chicken"},
+        {"id": 101, "name": "Kankun Beef", "price": 102.34, "description": "served with white rice or garlic rice & Salad", "img": "https://via.placeholder.com/400x300?text=Kankun+Beef"},
+        {"id": 102, "name": "Nasigoreng", "price": 88.96, "description": "", "img": "https://via.placeholder.com/400x300?text=Nasigoreng"},
+        {"id": 103, "name": "Vegetable fried rice", "price": 57.12, "description": "", "img": "https://via.placeholder.com/400x300?text=Vegetable+Fried+Rice"},
+        {"id": 104, "name": "Beef Biriyani", "price": 95.80, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Biriyani"},
+        {"id": 105, "name": "Mongolian fried rice", "price": 97.25, "description": "", "img": "https://via.placeholder.com/400x300?text=Mongolian+Fried+Rice"},
+        {"id": 106, "name": "Sausage fried rice", "price": 52.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Sausage+Fried+Rice"},
+        {"id": 107, "name": "Tuna steak", "price": 113.05, "description": "served with garlic rice or mashed potato & salad", "img": "https://via.placeholder.com/400x300?text=Tuna+Steak"},
+        {"id": 108, "name": "Creamy Horseradish chicken", "price": 105.05, "description": "served with garlic rice or mashed potato & salad", "img": "https://via.placeholder.com/400x300?text=Creamy+Horseradish+Chicken"},
+        {"id": 109, "name": "Black and White", "price": 115.85, "description": "served with beef & chicken, garlic rice or mashed potato & salad", "img": "https://via.placeholder.com/400x300?text=Black+and+White"},
+        {"id": 110, "name": "Seafood fried rice", "price": 97.54, "description": "", "img": "https://via.placeholder.com/400x300?text=Seafood+Fried+Rice"},
+        {"id": 111, "name": "Chicken Biriyani", "price": 95.80, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Biriyani"}
+      ]
+    },
+    {
+      "category": "Mains - Noodles",
+      "items": [
+        {"id": 112, "name": "Tuna fried noodles", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Noodles"},
+        {"id": 113, "name": "Chicken fried noodles", "price": 70.35, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Noodles"},
+        {"id": 114, "name": "Beef fried noodles", "price": 75.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Noodles"},
+        {"id": 115, "name": "Bamigoreng", "price": 89.25, "description": "", "img": "https://via.placeholder.com/400x300?text=Bamigoreng"},
+        {"id": 116, "name": "Mixed fried noodles", "price": 89.25, "description": "", "img": "https://via.placeholder.com/400x300?text=Mixed+Noodles"},
+        {"id": 117, "name": "Boava fried noodles", "price": 89.25, "description": "", "img": "https://via.placeholder.com/400x300?text=Boava+Noodles"},
+        {"id": 118, "name": "Seafood fried noodles", "price": 97.54, "description": "", "img": "https://via.placeholder.com/400x300?text=Seafood+Noodles"},
+        {"id": 119, "name": "Vegetable fried noodles", "price": 57.12, "description": "", "img": "https://via.placeholder.com/400x300?text=Vegetable+Noodles"},
+        {"id": 120, "name": "Sausage fried noodles", "price": 52.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Sausage+Noodles"},
+        {"id": 121, "name": "Valhomas fried noodles", "price": 73.30, "description": "", "img": "https://via.placeholder.com/400x300?text=Valhomas+Noodles"},
+        {"id": 122, "name": "Spicy ramen noodles", "price": 89.25, "description": "", "img": "https://via.placeholder.com/400x300?text=Spicy+Ramen"}
+      ]
+    },
+    {
+      "category": "Mains - Kottu Roshi & Side Dishes",
+      "items": [
+        {"id": 123, "name": "Tuna kotthu roshi", "price": 67.83, "description": "", "img": "https://via.placeholder.com/400x300?text=Tuna+Kottu"},
+        {"id": 124, "name": "Chicken kotthu roshi", "price": 70.35, "description": "", "img": "https://via.placeholder.com/400x300?text=Chicken+Kottu"},
+        {"id": 125, "name": "Beef kotthu roshi", "price": 75.68, "description": "", "img": "https://via.placeholder.com/400x300?text=Beef+Kottu"},
+        {"id": 126, "name": "Sausage kotthu roshi", "price": 52.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Sausage+Kottu"},
+        {"id": 127, "name": "Mixed kotthu roshi", "price": 89.54, "description": "", "img": "https://via.placeholder.com/400x300?text=Mixed+Kottu"},
+        {"id": 128, "name": "Valhomas kotthu roshi", "price": 73.30, "description": "", "img": "https://via.placeholder.com/400x300?text=Valhomas+Kottu"},
+        {"id": 129, "name": "Boava kotthu roshi", "price": 89.25, "description": "", "img": "https://via.placeholder.com/400x300?text=Boava+Kottu"},
+        {"id": 130, "name": "Seafood kotthu roshi", "price": 97.54, "description": "", "img": "https://via.placeholder.com/400x300?text=Seafood+Kottu"},
+        {"id": 131, "name": "Chilli chicken", "price": 60.69, "description": "", "img": "https://via.placeholder.com/400x300?text=Chilli+Chicken"},
+        {"id": 132, "name": "Chilli fish", "price": 60.69, "description": "", "img": "https://via.placeholder.com/400x300?text=Chilli+Fish"},
+        {"id": 133, "name": "Devilled chicken", "price": 77.35, "description": "", "img": "https://via.placeholder.com/400x300?text=Devilled+Chicken"},
+        {"id": 134, "name": "Paratha", "price": 11.00, "description": "", "img": "https://via.placeholder.com/400x300?text=Paratha"},
+        {"id": 135, "name": "Devilled Beef", "price": 65.35, "description": "", "img": "https://via.placeholder.com/400x300?text=Devilled+Beef"},
+        {"id": 136, "name": "Boiled vegetables", "price": 35.33, "description": "", "img": "https://via.placeholder.com/400x300?text=Boiled+Vegetables"},
+        {"id": 137, "name": "Mashed potato", "price": 28.20, "description": "", "img": "https://via.placeholder.com/400x300?text=Mashed+Potato"},
+        {"id": 138, "name": "Garlic rice portion", "price": 25.20, "description": "", "img": "https://via.placeholder.com/400x300?text=Garlic+Rice"}
+      ]
+    },
+    {
+    "category": "Seafood",
+    "items": [
+      {
+        "id": 180,
+        "name": "Seafood platter with boiled vegetable",
+        "price": 327.25,
+        "description": "Seafood platter with boiled vegetable",
+        "img": "https://images.unsplash.com/photo-1551218808-94e220e084d1?w=500",
+        "ingredients": ["Mixed Seafood", "Prawns", "Fish", "Boiled Vegetables"]
+      },
+      {
+        "id": 181,
+        "name": "Jumbo prawns with salad & garlic butter",
+        "price": 210.63,
+        "description": "Jumbo prawns with salad & garlic butter",
+        "img": "https://images.unsplash.com/photo-1601001734310-7b71298ebd42?w=500",
+        "ingredients": ["Jumbo Prawns", "Garlic Butter", "Salad"]
+      },
+      {
+        "id": 182,
+        "name": "Grilled white fish",
+        "price": 152.32,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500",
+        "ingredients": ["White Fish", "Grilled"]
+      },
+      {
+        "id": 183,
+        "name": "Chilli boava with steam rice",
+        "price": 89.25,
+        "description": "Chilli boava with steam rice",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Boava", "Chilli", "Steam Rice"]
+      },
+      {
+        "id": 184,
+        "name": "Chilli boava with roshi",
+        "price": 101.15,
+        "description": "Chilli boava with roshi",
+        "img": "https://images.unsplash.com/photo-1582479522408-13fbe0e758d3?w=500",
+        "ingredients": ["Boava", "Chilli", "Roshi"]
+      },
+      {
+        "id": 185,
+        "name": "Rose mary lobsters with butter sauces, boiled vegetable, potato wedges, cocktail salad",
+        "price": 1190.00,
+        "description": "Rose mary lobsters with butter sauces, boiled vegetable, potato wedges, cocktail salad",
+        "img": "https://images.unsplash.com/photo-1579586145623-d1e8ec6ea5dc?w=500",
+        "ingredients": ["Lobster", "Rosemary", "Butter Sauce", "Boiled Vegetables", "Potato Wedges", "Cocktail Salad"]
+      },
+      {
+        "id": 186,
+        "name": "Prawns kebab with rice",
+        "price": 103.53,
+        "description": "Prawns kebab with rice",
+        "img": "https://images.unsplash.com/photo-1601004386682-dedd0791b6ec?w=500",
+        "ingredients": ["Prawns", "Kebab", "Rice"]
+      }
+    ]
+  },
+  {
+    "category": "Pizza",
+    "items": [
+      {
+        "id": 170,
+        "name": "Pizza slice beef",
+        "price": 23.19,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1508187619440-a7b23d2fc253?w=500",
+        "ingredients": ["Beef", "Pizza Base", "Cheese"]
+      },
+      {
+        "id": 171,
+        "name": "Pizza slice chicken",
+        "price": 20.42,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1548369933-408f8f29e8b6?w=500",
+        "ingredients": ["Chicken", "Pizza Base", "Cheese"]
+      },
+      {
+        "id": 172,
+        "name": "Margarita Pizza",
+        "price": 97.58,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1574071318508-1cdbab80ddfa?w=500",
+        "ingredients": ["Tomato", "Mozzarella", "Basil"]
+      },
+      {
+        "id": 173,
+        "name": "Beef & mushroom Pizza",
+        "price": 135.08,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500",
+        "ingredients": ["Beef", "Mushroom", "Cheese"]
+      },
+      {
+        "id": 174,
+        "name": "Tuna Pizza",
+        "price": 120.19,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1579758906978-f91e8b4eaa9b?w=500",
+        "ingredients": ["Tuna", "Onion", "Cheese"]
+      },
+      {
+        "id": 175,
+        "name": "Hawai Pizza",
+        "price": 157.08,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1541422925514-4e4d868d382b?w=500",
+        "ingredients": ["Ham", "Pineapple", "Cheese"]
+      },
+      {
+        "id": 176,
+        "name": "Seafood Pizza (Prawns, Cuttlefish, Tuna)",
+        "price": 168.98,
+        "description": "Prawns, Cuttlefish, Tuna",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Prawns", "Cuttlefish", "Tuna", "Cheese"]
+      },
+      {
+        "id": 177,
+        "name": "Chicken Ham & mushroom Pizza",
+        "price": 145.18,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1574071318508-1cdbab80ddfa?w=500",
+        "ingredients": ["Chicken", "Ham", "Mushroom", "Cheese"]
+      },
+      {
+        "id": 178,
+        "name": "Meat lover Pizza",
+        "price": 157.08,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500",
+        "ingredients": ["Beef", "Chicken", "Sausage", "Cheese"]
+      },
+      {
+        "id": 179,
+        "name": "Alexander Pizza (chicken & sausage)",
+        "price": 145.18,
+        "description": "chicken & sausage",
+        "img": "https://images.unsplash.com/photo-1548369933-408f8f29e8b6?w=500",
+        "ingredients": ["Chicken", "Sausage", "Cheese"]
+      },
+      {
+        "id": 180,
+        "name": "Promotions Pizza",
+        "price": 119.00,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1508187619440-a7b23d2fc253?w=500",
+        "ingredients": ["Mixed Toppings"]
+      }
+    ]
+  },
+   {
+    "category": "Chicken Specials",
+    "items": [
+      {
+        "id": 140,
+        "name": "Grilled chicken",
+        "price": 118.00,
+        "description": "served with mashed potato or garlic rice & salad",
+        "img": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=500",
+        "ingredients": ["Grilled Chicken", "Mashed Potato or Garlic Rice", "Salad"]
+      },
+      {
+        "id": 141,
+        "name": "Chicken cordon blue",
+        "price": 119.00,
+        "description": "served with mashed potato or garlic rice with grilled vegetables",
+        "img": "https://images.unsplash.com/photo-1626082910497-5397b1d5f9e9?w=500",
+        "ingredients": ["Chicken Breast", "Ham", "Cheese", "Breadcrumbs", "Mashed Potato or Garlic Rice", "Grilled Vegetables"]
+      },
+      {
+        "id": 142,
+        "name": "Cheese chicken with rice",
+        "price": 97.58,
+        "description": "served with garlic rice or mashed potato & salad",
+        "img": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500",
+        "ingredients": ["Chicken", "Cheese", "Garlic Rice or Mashed Potato", "Salad"]
+      },
+      {
+        "id": 143,
+        "name": "Teriyaki chicken with cous cous",
+        "price": 120.00,
+        "description": "served with salad",
+        "img": "https://images.unsplash.com/photo-1603366444382-3f0a13d5f3e9?w=500",
+        "ingredients": ["Chicken", "Teriyaki Sauce", "Cous Cous", "Salad"]
+      },
+      {
+        "id": 144,
+        "name": "Chilli chicken with paratha",
+        "price": 72.50,
+        "description": "served with two paratha",
+        "img": "https://images.unsplash.com/photo-1617098900591-3f90928e3c54?w=500",
+        "ingredients": ["Chilli Chicken", "Paratha"]
+      },
+      {
+        "id": 145,
+        "name": "Devil chicken with paratha",
+        "price": 79.25,
+        "description": "served with two paratha",
+        "img": "https://images.unsplash.com/photo-1626645736935-2c758b3d5e2d?w=500",
+        "ingredients": ["Devilled Chicken", "Paratha"]
+      },
+      {
+        "id": 146,
+        "name": "Chicken piccata",
+        "price": 88.06,
+        "description": "served with lemon rice or garlic rice & salad",
+        "img": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500",
+        "ingredients": ["Chicken", "Lemon Sauce", "Capers", "Lemon Rice or Garlic Rice", "Salad"]
+      },
+      {
+        "id": 147,
+        "name": "Chicken cheese toper",
+        "price": 99.98,
+        "description": "served with mashed potatoes",
+        "img": "https://images.unsplash.com/photo-1626082910497-5397b1d5f9e9?w=500",
+        "ingredients": ["Chicken", "Cheese Topping", "Mashed Potatoes"]
+      },
+      {
+        "id": 148,
+        "name": "Honey garlic chicken",
+        "price": 88.06,
+        "description": "served with garlic rice or mashed potato & salad",
+        "img": "https://images.unsplash.com/photo-1603366444382-3f0a13d5f3e9?w=500",
+        "ingredients": ["Chicken", "Honey Garlic Sauce", "Garlic Rice or Mashed Potato", "Salad"]
+      },
+      {
+        "id": 149,
+        "name": "Ginger chicken",
+        "price": 84.49,
+        "description": "served with garlic rice or two paratha or four roshi & salad",
+        "img": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500",
+        "ingredients": ["Chicken", "Ginger", "Garlic Rice or Paratha or Roshi", "Salad"]
+      },
+      {
+        "id": 150,
+        "name": "Chicken tikka with paratha",
+        "price": 89.25,
+        "description": "served with two paratha",
+        "img": "https://images.unsplash.com/photo-1565556327096-26f4f8e4e6e7?w=500",
+        "ingredients": ["Chicken Tikka", "Paratha"]
+      },
+      {
+        "id": 151,
+        "name": "Chicken steak",
+        "price": 118.00,
+        "description": "served with mashed potato or garlic rice & salad",
+        "img": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=500",
+        "ingredients": ["Chicken Steak", "Mashed Potato or Garlic Rice", "Salad"]
+      },
+      {
+        "id": 152,
+        "name": "Peri Peri chicken with cous cous",
+        "price": 95.20,
+        "description": "served with salad",
+        "img": "https://images.unsplash.com/photo-1625396938750-0c3e6f2e4d5e?w=500",
+        "ingredients": ["Peri Peri Chicken", "Cous Cous", "Salad"]
+      },
+      {
+        "id": 153,
+        "name": "Lemon garlic rice",
+        "price": 120.00,
+        "description": "served with lemon rice or garlic rice and salad",
+        "img": "https://images.unsplash.com/photo-1603366444382-3f0a13d5f3e9?w=500",
+        "ingredients": ["Chicken", "Lemon Garlic Sauce", "Lemon Rice or Garlic Rice", "Salad"]
+      },
+      {
+        "id": 154,
+        "name": "Chicken Ala kiev",
+        "price": 115.90,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1626082910497-5397b1d5f9e9?w=500",
+        "ingredients": ["Chicken Kiev", "Butter", "Garlic", "Herbs"]
+      }
+    ]
+  },
+  {
+    "category": "Beef Specials",
+    "items": [
+      {
+        "id": 155,
+        "name": "Beef steak with boiled vegetable & mashed potato",
+        "price": 170.00,
+        "description": "with boiled vegetable & mashed potato",
+        "img": "https://images.unsplash.com/photo-1600891964092-4316e7369eae?w=500",
+        "ingredients": ["Beef Steak", "Boiled Vegetables", "Mashed Potato"]
+      },
+      {
+        "id": 156,
+        "name": "Lamb chop",
+        "price": 236.81,
+        "description": "served with mashed potato, boiled veggies and black pepper sauce",
+        "img": "https://images.unsplash.com/photo-1606869966165-0c2e6c8f8c5e?w=500",
+        "ingredients": ["Lamb Chop", "Mashed Potato", "Boiled Vegetables", "Black Pepper Sauce"]
+      },
+      {
+        "id": 157,
+        "name": "Rosemary beef steak",
+        "price": 153.51,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1546833994-3e88b3d6c2ed?w=500",
+        "ingredients": ["Beef Steak", "Rosemary", "Herbs"]
+      },
+      {
+        "id": 158,
+        "name": "Black & Black with mashed potatoes",
+        "price": 120.85,
+        "description": "with mashed potatoes",
+        "img": "https://images.unsplash.com/photo-1600891964092-4316e7369eae?w=500",
+        "ingredients": ["Beef", "Black Pepper Sauce", "Mashed Potatoes"]
+      }
+    ]
+  },
+   {
+    "category": "Thai Specials",
+    "items": [
+      {
+        "id": 159,
+        "name": "Thai chicken rice",
+        "price": 89.90,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500",
+        "ingredients": ["Chicken", "Thai Spices", "Rice", "Vegetables"]
+      },
+      {
+        "id": 160,
+        "name": "Thai chicken satay with Thai rice",
+        "price": 115.28,
+        "description": "with Thai rice",
+        "img": "https://images.unsplash.com/photo-1528207776546-365d073b83a2?w=500",
+        "ingredients": ["Chicken Satay", "Peanut Sauce", "Thai Rice"]
+      },
+      {
+        "id": 161,
+        "name": "Thai red curry with rice",
+        "price": 88.06,
+        "description": "with rice",
+        "img": "https://images.unsplash.com/photo-1455619452474-d2be8b1c1995?w=500",
+        "ingredients": ["Red Curry Paste", "Coconut Milk", "Chicken or Vegetables", "Rice"]
+      },
+      {
+        "id": 162,
+        "name": "Thai green curry with rice",
+        "price": 88.06,
+        "description": "with rice",
+        "img": "https://images.unsplash.com/photo-1628779239953-202e1a2387c9?w=500",
+        "ingredients": ["Green Curry Paste", "Coconut Milk", "Chicken or Vegetables", "Rice"]
+      },
+      {
+        "id": 163,
+        "name": "Kao pad",
+        "price": 88.06,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500",
+        "ingredients": ["Thai Fried Rice", "Egg", "Vegetables", "Chicken or Prawn"]
+      },
+      {
+        "id": 164,
+        "name": "Pad thai",
+        "price": 88.06,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1559314809-0d155710e649?w=500",
+        "ingredients": ["Rice Noodles", "Tamarind Sauce", "Egg", "Bean Sprouts", "Peanuts", "Chicken or Prawn"]
+      },
+      {
+        "id": 165,
+        "name": "Chicken kampow",
+        "price": 83.30,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500",
+        "ingredients": ["Chicken", "Basil", "Chili", "Garlic", "Rice"]
+      }
+    ]
+  },
+  {
+    "category": "Italian Corner - Pasta",
+    "items": [
+      {
+        "id": 166,
+        "name": "White pasta (Beef or Chicken)",
+        "price": 80.44,
+        "description": "served with Beef or Chicken",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Pasta", "White Sauce", "Beef or Chicken"]
+      },
+      {
+        "id": 167,
+        "name": "Aglio olio with valhomas",
+        "price": 86.34,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1473093294523-3c1c4d0b5d9d?w=500",
+        "ingredients": ["Spaghetti", "Garlic", "Olive Oil", "Valhomas (Tuna)"]
+      },
+      {
+        "id": 168,
+        "name": "Aglio olio with beef",
+        "price": 92.48,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Spaghetti", "Garlic", "Olive Oil", "Beef"]
+      },
+      {
+        "id": 169,
+        "name": "Beef stroganoff",
+        "price": 112.33,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1600891964092-4316e7369eae?w=500",
+        "ingredients": ["Beef", "Mushroom", "Cream Sauce", "Pasta"]
+      },
+      {
+        "id": 170,
+        "name": "Aglio olio with seafood",
+        "price": 101.19,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Spaghetti", "Garlic", "Olive Oil", "Seafood"]
+      },
+      {
+        "id": 171,
+        "name": "Beef bolognese",
+        "price": 95.25,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Pasta", "Beef Bolognese Sauce"]
+      },
+      {
+        "id": 172,
+        "name": "Penne al fredo",
+        "price": 86.34,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Penne", "Alfredo Sauce", "Chicken"]
+      },
+      {
+        "id": 173,
+        "name": "Hot tuna pasta",
+        "price": 82.52,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Pasta", "Tuna", "Spicy Sauce"]
+      },
+      {
+        "id": 174,
+        "name": "Chicken carbonara",
+        "price": 88.68,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1546549032-9571df3617b1?w=500",
+        "ingredients": ["Pasta", "Chicken", "Carbonara Sauce", "Bacon", "Egg"]
+      },
+      {
+        "id": 175,
+        "name": "Marinara",
+        "price": 88.93,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Pasta", "Marinara Sauce", "Seafood"]
+      },
+      {
+        "id": 176,
+        "name": "Beef lasagna",
+        "price": 90.88,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1574899740274-8d68e418a7f8?w=500",
+        "ingredients": ["Lasagna Sheets", "Beef", "Cheese", "Tomato Sauce"]
+      },
+      {
+        "id": 177,
+        "name": "Aglio olio with chicken",
+        "price": 88.34,
+        "description": "",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Spaghetti", "Garlic", "Olive Oil", "Chicken"]
+      },
+      {
+        "id": 178,
+        "name": "Chicken Arabica",
+        "price": 80.25,
+        "description": "served with chicken, Tomato sauce, Thai basil & chilli flakes",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Chicken", "Tomato Sauce", "Thai Basil", "Chilli Flakes"]
+      },
+      {
+        "id": 179,
+        "name": "Chicken Ala italino",
+        "price": 88.06,
+        "description": "served with grilled chicken",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Pasta", "Grilled Chicken", "Italian Sauce"]
+      },
+      {
+        "id": 180,
+        "name": "Penne alla Roastica",
+        "price": 81.63,
+        "description": "served with tomato sauce, chicken, sweet basil, parmesan cheese",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Penne", "Tomato Sauce", "Chicken", "Basil", "Parmesan"]
+      },
+      {
+        "id": 181,
+        "name": "Beef & Spinach",
+        "price": 91.63,
+        "description": "served with white sauce",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Beef", "Spinach", "White Sauce"]
+      },
+      {
+        "id": 182,
+        "name": "Spaghetti Al frutti de mari",
+        "price": 95.00,
+        "description": "served with fresh tomato with white sauce",
+        "img": "https://images.unsplash.com/photo-1551183053-bf914af42967?w=500",
+        "ingredients": ["Spaghetti", "Seafood", "Tomato", "White Sauce"]
+      },
+      {
+        "id": 183,
+        "name": "Pink pasta",
+        "price": 88.93,
+        "description": "served with beef / chicken with homemade pink sauce",
+        "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+        "ingredients": ["Pasta", "Beef or Chicken", "Pink Sauce (Tomato + Cream)"]
+      }
+    ]
+  },
+{
+  "category": "It's A Set Deal",
+  "items": [
+    {
+      "id": 184,
+      "name": "Black pepper chicken",
+      "price": 97.00,
+      "description": "served with shorted mushroom, french fries, salad, black mushroom sauces and day special dessert",
+      "img": "https://images.unsplash.com/photo-1605274398754-a4fd4a8733d9?w=500",
+      "ingredients": ["Chicken", "Black Pepper Sauce", "Shorted Mushroom", "French Fries", "Salad", "Black Mushroom Sauce", "Day Special Dessert"]
+    },
+    {
+      "id": 185,
+      "name": "Cajun chicken",
+      "price": 97.00,
+      "description": "served with garlic rice, green salad, butter broccoli and day special dessert",
+      "img": "https://images.unsplash.com/photo-1625396938750-0c3e6f2e4d5e?w=500",
+      "ingredients": ["Cajun Chicken", "Garlic Rice", "Green Salad", "Butter Broccoli", "Day Special Dessert"]
+    },
+    {
+      "id": 186,
+      "name": "Pesto chicken",
+      "price": 112.00,
+      "description": "served with vegetable rice, pesto sauce, potato wedges and day special dessert",
+      "img": "https://images.unsplash.com/photo-1615486363818-b87b55b6d3b8?w=500",
+      "ingredients": ["Chicken", "Pesto Sauce", "Vegetable Rice", "Potato Wedges", "Day Special Dessert"]
+    },
+    {
+      "id": 187,
+      "name": "BBQ Leg",
+      "price": 97.00,
+      "description": "served with mashed potato, sweet potato sticks, mixed salad and day special dessert",
+      "img": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500",
+      "ingredients": ["BBQ Chicken Leg", "Mashed Potato", "Sweet Potato Sticks", "Mixed Salad", "Day Special Dessert"]
+    },
+    {
+      "id": 188,
+      "name": "Redpepper chicken",
+      "price": 97.00,
+      "description": "served with fried chicken, steam rice, garlic kankun, poached egg & lettuce salad and day special dessert",
+      "img": "https://images.unsplash.com/photo-1603366444382-3f0a13d5f3e9?w=500",
+      "ingredients": ["Red Pepper Chicken", "Fried Chicken", "Steam Rice", "Garlic Kankun", "Poached Egg", "Lettuce Salad", "Day Special Dessert"]
+    },
+    {
+      "id": 189,
+      "name": "Gadugadu",
+      "price": 120.00,
+      "description": "served with fried chicken, steam rice, garlic kankun, poached egg & lettuce salad and day special dessert",
+      "img": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=500",
+      "ingredients": ["Fried Chicken", "Steam Rice", "Garlic Kankun", "Poached Egg", "Lettuce Salad", "Day Special Dessert"]
+    },
+    {
+      "id": 190,
+      "name": "Herb chicken",
+      "price": 102.00,
+      "description": "served with mixed herb vegetable, carrot and cucumber sticks, garlic mushroom and day special dessert",
+      "img": "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=500",
+      "ingredients": ["Herb Chicken", "Mixed Herb Vegetables", "Carrot Sticks", "Cucumber Sticks", "Garlic Mushroom", "Day Special Dessert"]
+    },
+    {
+      "id": 191,
+      "name": "Margery prawns",
+      "price": 102.00,
+      "description": "served with garlic butter rice, green salad, sweet potato and day special dessert",
+      "img": "https://images.unsplash.com/photo-1601001734310-7b71298ebd42?w=500",
+      "ingredients": ["Margery Prawns", "Garlic Butter Rice", "Green Salad", "Sweet Potato", "Day Special Dessert"]
+    }
+  ]
+},
+    {
+      "category": "Desserts",
+      "items": [
+        {
+    "id": 11,
+    "name": "Chocolate Brownie",
+    "category": "Desserts",
+    "price": 21.0,
+    "spice_level": "None",
+    "img": "/menus-img/Chocolate Brownie.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chocolate", "img": "/images/ingredients/chocolate.jpg" },
+      { "id": 2, "name": "Butter", "img": "/images/ingredients/butter.jpg" },
+      { "id": 3, "name": "Flour", "img": "/images/ingredients/flour.jpg" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Chocolate Brownie with Ice Cream",
+    "category": "Desserts",
+    "price": 26.0,
+    "spice_level": "None",
+    "img": "/menus-img/Chocolate Brownie with Ice Cream.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chocolate Brownie", "img": "/images/ingredients/brownie.jpg" },
+      { "id": 2, "name": "Vanilla Ice Cream", "img": "/images/ingredients/vanilla.jpg" }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Vanilla Ice Cream",
+    "category": "Desserts",
+    "price": 18.0,
+    "spice_level": "None",
+    "img": "/menus-img/Vanilla Ice Cream.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Milk", "img": "/images/ingredients/milk.jpg" },
+      { "id": 2, "name": "Vanilla", "img": "/images/ingredients/vanilla.jpg" }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Chocolate Ice Cream",
+    "category": "Desserts",
+    "price": 18.0,
+    "spice_level": "None",
+    "img": "/menus-img/Chocolate Ice Cream.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Chocolate", "img": "/images/ingredients/chocolate.jpg" },
+      { "id": 2, "name": "Milk", "img": "/images/ingredients/milk.jpg" }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Fruit Salad",
+    "category": "Desserts",
+    "price": 24.0,
+    "spice_level": "None",
+    "img": "/menus-img/Fruit Salad.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Apple", "img": "/images/ingredients/apple.jpg" },
+      { "id": 2, "name": "Banana", "img": "/images/ingredients/banana.jpg" },
+      { "id": 3, "name": "Seasonal Fruits", "img": "/images/ingredients/fruits.jpg" }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Caramel Custard",
+    "category": "Desserts",
+    "price": 22.0,
+    "spice_level": "None",
+    "img": "/menus-img/Caramel Custard.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Milk", "img": "/images/ingredients/milk.jpg" },
+      { "id": 2, "name": "Egg", "img": "/images/ingredients/egg.jpg" },
+      { "id": 3, "name": "Caramel Sugar", "img": "/images/ingredients/sugar.jpg" }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Cheese Cake",
+    "category": "Desserts",
+    "price": 32.0,
+    "spice_level": "None",
+    "img": "/menus-img/Cheese Cake.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Cream Cheese", "img": "/images/ingredients/cream-cheese.jpg" },
+      { "id": 2, "name": "Butter Biscuit Base", "img": "/images/ingredients/biscuit.jpg" }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Pancake with Honey",
+    "category": "Desserts",
+    "price": 25.0,
+    "spice_level": "None",
+    "img": "/menus-img/Pancake with Honey.jpg",
+    "ingredients": [
+      { "id": 1, "name": "Flour", "img": "/images/ingredients/flour.jpg" },
+      { "id": 2, "name": "Honey", "img": "/images/ingredients/honey.jpg" }
+    ]
+  }
+      ]
+    }
+  ]
+}
+

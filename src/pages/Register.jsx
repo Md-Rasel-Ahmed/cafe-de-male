@@ -5,8 +5,33 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  // handle register
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name);
+    createUser(email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+  };
+
   return (
     <section className="min-h-screen bg-base-300 flex items-center justify-center px-4">
       <div className="max-w-6xl w-full grid md:grid-cols-2 bg-base-100 rounded-2xl shadow-2xl overflow-hidden">
@@ -22,12 +47,13 @@ const Register = () => {
             Join us today and start enjoying delicious meals! 🍽️
           </p>
 
-          <form className="space-y-6">
+          <form onSubmit={handleRegister} className="space-y-6">
             {/* Full Name */}
             <div className="relative">
               <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400   text-lg" />
               <input
                 type="text"
+                name="name"
                 placeholder="Enter your full name"
                 className="input input-bordered w-full pl-10 focus:outline-0 "
                 required
@@ -39,6 +65,7 @@ const Register = () => {
               <MdEmail className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400 text-lg" />
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="input input-bordered w-full pl-10 focus:outline-0"
                 required
@@ -50,6 +77,7 @@ const Register = () => {
               <RiLockPasswordLine className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400 text-lg" />
               <input
                 type="password"
+                name="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full pl-10 focus:outline-0"
                 required

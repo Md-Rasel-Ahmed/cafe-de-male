@@ -87,7 +87,7 @@ export default function Menus() {
   const { cartAdded } = useContext(CartProviderContext);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("/catagoris.json")
+    fetch("/catagoris2.json")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -99,32 +99,36 @@ export default function Menus() {
 
     setLoading(true);
     setMenus([]);
-    fetch("/menus.json")
+    fetch("/menus2.json")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        const filterData = data?.filter((c) => c.category === name);
-        setMenus(filterData);
+        const filterData = data?.menu.filter((c) => c.category === name);
+
+        setMenus(filterData[0].items);
         setLoading(false);
       });
   };
+
   // handle add cart
   const handleAddCart = (menu) => {
     toast.success(`${menu.name} Added Successfull!`);
     cartAdded(menu);
   };
-  const ingradientsClick = (name) => {
-    // window.open(url,)
-    navigate("www.google.com milk tea images");
-  };
+
   return (
     <div
-      className="min-h-screen justify-center bg-cover "
+      className="min-h-screen justify-center bg-cover bg-base-300 "
       style={{
-        backgroundImage: "url(https://i.ibb.co/GvZvgrp7/bg.webp)",
+        backgroundImage: "url(./menu-img.jpg)",
       }}
     >
-      <div className="menu-content">
+      <div
+        className="menu-content h-full"
+        // style={{
+        //   backgroundImage: "url(https://i.ibb.co/GvZvgrp7/bg.webp)",
+        // }}
+      >
         <h1 className="text-center text-xl font-bold py-5">Menus</h1>
         <h1 className="text-8xl font-bold text-center py-5">
           Discover Our menu
@@ -136,16 +140,19 @@ export default function Menus() {
           </p>
         </div>
       </div>
-      <div className="menus w-4/5 mx-auto py-5 bg-base-300 p-5 mt-5">
-        <div className="menu-cetagory  w-4/5 flex flex-wrap  gap-1 text-2xl justify-center">
+      <div className="menus  py-5 bg-base-300 p-5 mt-5">
+        <h1 className="text-xl font-bold text-center py-2">Categoris</h1>
+        <div className="menu-cetagory  w-full    gap-1 text-2xl justify-center">
           {catagoris?.map((catagory) => (
-            <button
+            <motion.button
               onClick={(e) => handleClick(catagory.name, e)}
               key={catagory.id}
-              className={`btn ${clickBtn === catagory.name && "btn-secondary"}`}
+              className={`btn btn-sm hover:bg-secondary  ${
+                clickBtn === catagory.name && "btn-secondary"
+              }`}
             >
               {catagory.name}
-            </button>
+            </motion.button>
           ))}
           {/* <NavLink className="p-2 rounded" to={"all-dishes"}>
             All Dishes
@@ -170,31 +177,31 @@ export default function Menus() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="grid lg:grid-cols-2 gap-3 my-10"
+          className="grid lg:grid-cols-4 md:grid-cols-2 gap-3 my-10"
         >
           {menus?.map((menu) => (
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex  bg-base-100 shadow-sm rounded-2xl"
+              className="  bg-base-100 shadow-sm rounded-2xl h-90 flex flex-col justify-between"
             >
               <figure>
                 <img
                   src={menu.img}
                   alt="Movie"
-                  className="rounded-l-2xl h-30 w-40"
+                  className="rounded-t-2xl h-50 w-full "
                 />
               </figure>
-              <div className=" w-full p-5 ">
+              <div className=" w-full p-2 ">
                 <div className="flex  justify-between items-center">
-                  <h1 className="text-xl font-bold">{menu.name}</h1>
-                  <p className="text-xl font-bold">MVR {menu.price}</p>
+                  <h1 className="text-sm font-bold">{menu.name}</h1>
+                  <p className="text-sm text-primary ">MVR {menu.price}</p>
                 </div>
                 <div className="flex justify-between mt-3 items-center">
                   <div className="flex gap-1  text-sm">
                     <p className="text-bold ">Ingredients :</p>
-                    {menu.ingredients.map((ing) => (
+                    {/* {menu?.ingredients.map((ing) => (
                       <a
                         href={`http://www.google.com/search?q=www.google.com+${ing.name}+images`}
                         target="_blank"
@@ -204,18 +211,21 @@ export default function Menus() {
                         {" "}
                         {ing.name}
                       </a>
-                    ))}
+                    ))} */}
                   </div>
-                  <FaCartArrowDown
-                    onClick={() => handleAddCart(menu)}
-                    size={30}
-                    className="text-secondary cursor-pointer"
-                  />
+
                   {/* <Link to={"menus/details"}>
                       <button className="btn btn-sm btn-secondary">Details</button>
                     </Link> */}
                 </div>
               </div>
+              <button
+                onClick={() => handleAddCart(menu)}
+                className="btn w-full rounded-b-2xl btn-secondary"
+              >
+                Add to Cart{" "}
+                <FaCartArrowDown size={20} className=" cursor-pointer" />
+              </button>
             </motion.div>
           ))}
         </motion.div>
