@@ -4,9 +4,12 @@ import { motion } from "framer-motion";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../firebase.init";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -17,17 +20,34 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name);
     createUser(email, password)
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-        console.log(user);
+        toast.success("Registered Successed!!");
+        updateProfile(auth.currentUser, {
+          tenantId: "admin",
+          displayName: name,
+        })
+          .then(() => {
+            // Profile updated!
+            console.log("profile updated");
+
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
+
+        <Navigate to={"/"}></Navigate>;
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        toast.error("Somethink is happended!");
+
         // ..
       });
   };

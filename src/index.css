@@ -23,3 +23,7 @@ li a.active{
   background-color: #F43098
 
 }
+.sidebar_menus a.active{
+  background-color: #F43098;
+  border-radius: 4px;
+}

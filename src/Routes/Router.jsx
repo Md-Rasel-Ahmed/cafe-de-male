@@ -13,6 +13,13 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CheckOut from "../pages/CheckOut";
 import OrderSumary from "../pages/OrderSumary";
+import PrivateRouter from "../Providers/PrivateRouter";
+import Gallery from "../pages/Gallery";
+import Dashboard from "../Admin/Dashboard";
+import ManageUsers from "../Admin/ManageUsers";
+import ManageItems from "../Admin/ManageItems";
+import ManageOrders from "../Admin/ManageOrders";
+import ManageReservation from "../Admin/ManageReservation";
 
 export default function Router() {
   return (
@@ -28,15 +35,49 @@ export default function Router() {
         </Route>
         <Route
           path="/reservation"
-          element={<Reservetion></Reservetion>}
+          element={
+            <PrivateRouter>
+              <Reservetion></Reservetion>
+            </PrivateRouter>
+          }
         ></Route>
-        <Route path="/chekout" element={<CheckOut></CheckOut>}></Route>
+        <Route
+          path="/chekout"
+          element={
+            <PrivateRouter>
+              <CheckOut></CheckOut>
+            </PrivateRouter>
+          }
+        ></Route>
         <Route
           path="/ordersummary"
-          element={<OrderSumary></OrderSumary>}
+          element={
+            <PrivateRouter>
+              <OrderSumary></OrderSumary>
+            </PrivateRouter>
+          }
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/gallery" element={<Gallery></Gallery>}></Route>
+        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+          <Route
+            path="manageusers"
+            element={<ManageUsers></ManageUsers>}
+          ></Route>
+          <Route
+            path="manageitems"
+            element={<ManageItems></ManageItems>}
+          ></Route>
+          <Route
+            path="manageorders"
+            element={<ManageOrders></ManageOrders>}
+          ></Route>
+          <Route
+            path="managereservation"
+            element={<ManageReservation></ManageReservation>}
+          ></Route>
+        </Route>
       </Route>
     </Routes>
   );

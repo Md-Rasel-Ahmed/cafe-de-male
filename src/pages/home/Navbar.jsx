@@ -3,12 +3,13 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 import { CartProviderContext } from "../../Providers/CartProvider";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { carts } = useContext(CartProviderContext);
-  const { user } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
 
@@ -30,7 +31,17 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
   const totalPrice = carts.reduce((total, item) => total + item.price, 0);
-
+  // logut user
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        // Sign-out successful.
+        toast.success("Logout Successed!");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50  transition-transform duration-300
@@ -68,10 +79,16 @@ const Navbar = () => {
                 <NavLink to="/menus">Menu</NavLink>
               </li>
               <li className="text-xl">
+                <NavLink to="/orders">Orders</NavLink>
+              </li>
+              <li className="text-xl">
                 <NavLink to="/reservation">Reservation</NavLink>
               </li>
               <li className="text-xl">
                 <NavLink to="/contact">Contact</NavLink>
+              </li>
+              <li className="text-xl">
+                <NavLink to="/gallery">Gallery</NavLink>
               </li>
             </ul>
           </div>
@@ -96,7 +113,13 @@ const Navbar = () => {
               <NavLink to="/reservation">Reservation</NavLink>
             </li>
             <li className="text-xl">
+              <NavLink to="/orders">Orders</NavLink>
+            </li>
+            <li className="text-xl">
               <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li className="text-xl">
+              <NavLink to="/gallery">Gallery</NavLink>
             </li>
           </ul>
         </div>
@@ -148,11 +171,55 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <p>{user?.email}</p>
-          {/* Login */}
-          <Link to="/login" className="btn btn-primary btn-sm">
-            Login
-          </Link>
+          {user?.email ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle"
+              >
+                <div className="avatar avatar-online">
+                  <div className="w-8 rounded-full">
+                    <img src="https://img.daisyui.com/images/profile/demo/idiotsandwich@192.webp" />
+                  </div>
+                </div>
+              </div>
+              <div
+                tabIndex={0}
+                className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow"
+              >
+                <div className="card-body">
+                  <ul className="flex flex-col gap-2">
+                    <Link
+                      className="bg-gray-300 p-1 rounded hover:bg-secondary text-black"
+                      to="/profile"
+                    >
+                      Profile
+                    </Link>
+                    <Link
+                      className="bg-gray-300 p-1 rounded hover:bg-secondary text-black"
+                      to={"/setting"}
+                    >
+                      Setting
+                    </Link>
+                    <Link
+                      className="bg-gray-300 p-1 rounded hover:bg-secondary text-black"
+                      to={"/dashboard"}
+                    >
+                      Dashboard
+                    </Link>
+                    <button onClick={handleLogOut} className="btn btn-error">
+                      Logout
+                    </button>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Link to="/login" className="btn btn-primary btn-sm">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

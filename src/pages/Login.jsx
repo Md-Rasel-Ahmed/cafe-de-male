@@ -1,11 +1,39 @@
 import Lottie from "lottie-react";
 import loginLottie from "./loginLottie.json"; // তোমার lottie json
 import { motion } from "framer-motion";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
+  const from = location.state || "/";
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name);
+    loginUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast.success("Singin Successed!");
+        navigate(from);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+  };
+
   return (
     <section className="min-h-screen bg-base-300 flex items-center justify-center px-4">
       <div className="max-w-6xl w-full flex flex-col lg:flex-row justify-center  bg-base-100 rounded-2xl shadow-2xl overflow-hidden">
@@ -32,7 +60,7 @@ const Login = () => {
             Login to continue your delicious journey 🍽️
           </p>
 
-          <form className="space-y-6 w-full">
+          <form onSubmit={handleLogin} className="space-y-6 w-full">
             {/* Email */}
             <div>
               <label className="label">
@@ -42,6 +70,7 @@ const Login = () => {
                 <MdEmail className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400 text-lg" />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
                   className="input input-bordered w-full pl-10 focus:outline-0"
                   required
@@ -57,6 +86,7 @@ const Login = () => {
                 <RiLockPasswordLine className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400 text-lg" />
                 <input
                   type="password"
+                  name="password"
                   placeholder="Enter your password"
                   className="input input-bordered w-full pl-10 focus:outline-0"
                   required
