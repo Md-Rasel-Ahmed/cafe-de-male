@@ -93,6 +93,17 @@ export default function Menus() {
         setLoading(false);
         setCatagoris(data);
       });
+    fetch("/menus2.json")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        const filterData = data?.menu.filter(
+          (c) => c.category === "Breakfast - Maldivian Delights"
+        );
+
+        setMenus(filterData[0].items);
+        setLoading(false);
+      });
   }, []);
   const handleClick = (name) => {
     setClickBtn(name);
@@ -112,7 +123,8 @@ export default function Menus() {
 
   // handle add cart
   const handleAddCart = (menu) => {
-    toast.success(`${menu.name} Added Successfull!`);
+    const quantity = 1;
+    menu.quantity = quantity;
     cartAdded(menu);
   };
 

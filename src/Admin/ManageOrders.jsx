@@ -1,30 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaClipboardList, FaEye, FaTrash } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-const initialOrders = [
-  {
-    id: 1,
-    customer: "Rasel Ahmed",
-    item: "Chicken Burger",
-    price: "$12",
-    status: "Pending",
-  },
-  {
-    id: 2,
-    customer: "Nahida",
-    item: "Pizza",
-    price: "$18",
-    status: "Preparing",
-  },
-  {
-    id: 3,
-    customer: "Abdur Rahman",
-    item: "Pasta",
-    price: "$15",
-    status: "Completed",
-  },
-];
 
 const statusColor = {
   Pending: "badge-warning",
@@ -33,13 +9,26 @@ const statusColor = {
 };
 
 export default function ManageOrders() {
-  const [orders, setOrders] = useState(initialOrders);
+  const [orders, setOrders] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:5000/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        setOrders(data);
+        console.log(data);
+      });
+  }, []);
   const handleStatusChange = (id, newStatus) => {
-    const updatedOrders = orders.map((order) =>
-      order.id === id ? { ...order, status: newStatus } : order
-    );
-    setOrders(updatedOrders);
+    fetch("http://localhost:5000/orders", {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ id, newStatus }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (
@@ -61,8 +50,8 @@ export default function ManageOrders() {
           <thead>
             <tr>
               <th>#</th>
-              <th>Customer</th>
-              <th>Item</th>
+              <th>Email</th>
+              <th>Order Id</th>
               <th>Price</th>
               <th>Status</th>
               <th className="text-center">Actions</th>
@@ -72,15 +61,15 @@ export default function ManageOrders() {
           <tbody>
             {orders.map((order, index) => (
               <motion.tr
-                key={order.id}
+                key={order._id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <td>{index + 1}</td>
-                <td>{order.customer}</td>
-                <td>{order.item}</td>
-                <td>{order.price}</td>
+                <td>{order.email}</td>
+                <td>{order.orderId}</td>
+                <td>{order.total}</td>
 
                 {/* Status Column */}
                 <td>
@@ -93,7 +82,7 @@ export default function ManageOrders() {
                       className="select select-xs select-bordered"
                       value={order.status}
                       onChange={(e) =>
-                        handleStatusChange(order.id, e.target.value)
+                        handleStatusChange(order._id, e.target.value)
                       }
                     >
                       <option value="Pending">Pending</option>

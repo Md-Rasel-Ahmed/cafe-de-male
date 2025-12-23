@@ -20,6 +20,8 @@ import ManageUsers from "../Admin/ManageUsers";
 import ManageItems from "../Admin/ManageItems";
 import ManageOrders from "../Admin/ManageOrders";
 import ManageReservation from "../Admin/ManageReservation";
+import Orders from "../pages/Orders";
+import Thank from "../pages/Thank";
 
 export default function Router() {
   return (
@@ -57,10 +59,33 @@ export default function Router() {
             </PrivateRouter>
           }
         ></Route>
+        <Route
+          path="/thank"
+          element={
+            <PrivateRouter>
+              <Thank></Thank>
+            </PrivateRouter>
+          }
+        ></Route>
+        <Route
+          path="/orders"
+          element={
+            <PrivateRouter>
+              <Orders></Orders>
+            </PrivateRouter>
+          }
+        ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/gallery" element={<Gallery></Gallery>}></Route>
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRouter>
+              <Dashboard></Dashboard>
+            </PrivateRouter>
+          }
+        >
           <Route
             path="manageusers"
             element={<ManageUsers></ManageUsers>}

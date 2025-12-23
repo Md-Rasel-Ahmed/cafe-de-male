@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaTrashAlt, FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { CartProviderContext } from "../Providers/CartProvider";
@@ -7,7 +7,13 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
 const CheckOut = () => {
-  const { carts, deleteCart } = useContext(CartProviderContext);
+  const { carts, deleteCart, incress, total, orderAdd } =
+    useContext(CartProviderContext);
+  const [updateCarts, setUpdateCarts] = useState(carts);
+  const [number, setNumber] = useState("");
+  const [adress, setAdress] = useState("");
+  // const [totalPrice,setTotalPrice]=useState(0)
+
   // delete item from cart
   const handleDelete = (id) => {
     Swal.fire({
@@ -23,16 +29,33 @@ const CheckOut = () => {
     // toast.success("");
   };
   const navigate = useNavigate();
-  const totalPrice = carts.reduce((total, item) => total + item.price, 0);
-  const chekOut = () => {
+  const placeOrder = () => {
+    if (number && adress) {
+      orderAdd();
+      navigate("/thank");
+    } else {
+      toast.error("Please provide adress!");
+    }
     // Swal.fire({
     //   title: "Your order has been place!",
     //   icon: "success",
     //   draggable: true,
     // });
-
-    navigate("/ordersummary");
   };
+  // incres quantity
+  const incresQuantity = (id) => {
+    incress(id);
+    // const findItem = updateCarts.find((cart) => cart.id === id);
+    // const findDefaultItem = carts.find((cart) => cart.id === id);
+    // findItem.quantity = findItem.quantity + 1;
+
+    // // findItem.price = findDefaultItem.price * findItem.quantity;
+    // setUpdateCarts([...updateCarts]);
+    // console.log(findItem, findDefaultItem);
+  };
+  // console.log("outside", carts);
+  const totalPrice = updateCarts.reduce((total, item) => total + item.price, 0);
+  // console.log(totalPrice, updateCarts);
   return (
     <div className="min-h-screen flex justify-center items-start p-6">
       <motion.div
@@ -42,7 +65,6 @@ const CheckOut = () => {
         className="w-full max-w-4xl bg-base-300 shadow-2xl rounded-xl p-8"
       >
         <h2 className="text-3xl font-bold text-center mb-6 ">Checkout</h2>
-
         {/* Cart Items */}
         <div className="space-y-4">
           {carts?.map((item) => (
@@ -61,12 +83,21 @@ const CheckOut = () => {
                 />
                 <div>
                   <h3 className="font-semibold text-lg">{item.name}</h3>
-                  <p className="text-gray-500">1 x ${item.price.toFixed(2)}</p>
+                  <p className="text-gray-500">
+                    <button className="btn">-</button> {item.quantity}
+                    <button
+                      className="btn"
+                      onClick={() => incresQuantity(item.id)}
+                    >
+                      +
+                    </button>{" "}
+                    x MVR {item.price.toFixed(2)}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="font-bold text-lg">
-                  ${item.price.toFixed(2)}
+                  MVR {(item.price * item.quantity).toFixed(2)}
                 </span>
                 <button
                   onClick={() => handleDelete(item.id)}
@@ -82,7 +113,7 @@ const CheckOut = () => {
         {/* Total */}
         <div className="flex justify-between font-bold text-xl mt-6 border-t pt-4">
           <span>Total:</span>
-          <span>${totalPrice.toFixed(2)}</span>
+          <span>MVR {total.toFixed(2)}</span>
         </div>
 
         {/* Checkout Actions */}
@@ -96,7 +127,7 @@ const CheckOut = () => {
           </Link>
 
           <button
-            onClick={chekOut}
+            onClick={placeOrder}
             className="btn btn-primary px-6 py-2 text-lg"
           >
             Place Order
@@ -113,13 +144,17 @@ const CheckOut = () => {
               className="input input-bordered w-full"
             />
             <input
-              type="text"
+              type="number"
               placeholder="Phone Number"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
               className="input input-bordered w-full"
             />
             <input
               type="text"
               placeholder="Address"
+              value={adress}
+              onChange={(e) => setAdress(e.target.value)}
               className="input input-bordered w-full col-span-2"
             />
             <input
