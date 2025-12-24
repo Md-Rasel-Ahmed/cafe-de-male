@@ -1,36 +1,17 @@
 import React from "react";
-import OnlineOrders from "./../pages/OnlineOrders";
-import { Link, NavLink, Outlet, useLocation, useParams } from "react-router";
+import OnlineOrders from "../OnlineOrders";
+import { Link, NavLink, Outlet, useLocation } from "react-router";
 import { MdEventSeat, MdManageAccounts } from "react-icons/md";
-import { FaBoxOpen, FaClipboardList, FaUsersCog } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { IoIosSettings } from "react-icons/io";
+
 import { motion } from "framer-motion";
 
-export default function Dashboard() {
+export default function UserInfo() {
   const location = useLocation();
   console.log(location);
 
   return (
-    // <div>
-    //   <h1 className="text-2xl font-bold text-center py-5">Dashboard</h1>
-
-    //   <div className="flex">
-    //     {/* left bar */}
-    //     <div className="w-60">
-    //       <ul className="flex flex-col gap-2">
-    //         <Link to={"/manageorders"} className="bg-secondary p-2 rounded">Manage Orders</Link>
-    //         <Link to={"/manageorders"} className="bg-secondary p-2 rounded">Manage Orders</Link>
-    //         <Link to={"/manageorders"} className="bg-secondary p-2 rounded">Manage Orders</Link>
-    //         <Link to={"/manageorders"} className="bg-secondary p-2 rounded">Manage Orders</Link>
-    //         <Link to={"/manageorders"} className="bg-secondary p-2 rounded">Manage Orders</Link>
-
-    //       </ul>
-    //     </div>
-    //     {/* MAIN CONTENT */}
-    //     <div className="bg-red-500 w-full">
-    //       <h2>Content</h2>
-    //     </div>
-    //   </div>
-    // </div>
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
@@ -67,7 +48,7 @@ export default function Dashboard() {
             transition={{ duration: 0.4 }}
             className="text-center text-4xl font-bold mt-10"
           >
-            WELCOME TO YOUR DASHBOARD!
+            WELCOME TO YOUR PROFILE!
           </motion.h1>
         )}
 
@@ -84,49 +65,27 @@ export default function Dashboard() {
           {/* Sidebar content here */}
           <ul className="menu sidebar_menus w-full grow gap-3  md:mt-0 mt-15">
             {/* List item */}
-            <NavLink to={"manageorders"}>
+            <NavLink to={"profile"}>
               <button
                 className="cursor-pointer is-drawer-close:tooltip is-drawer-close:tooltip-right border border-gray-400 p-1 flex items-center gap-2 text-lg font-bold rounded w-full"
-                data-tip="Manage Orders"
+                data-tip="Profile"
               >
                 {/* Home icon */}
-                <FaClipboardList size={25}></FaClipboardList>
-                <span className="is-drawer-close:hidden">Manage Order</span>
+                <CgProfile size={25}></CgProfile>
+                <span className="is-drawer-close:hidden">Profile</span>
               </button>
             </NavLink>
 
             {/* List item */}
-            <NavLink to={"manageusers"}>
+            <NavLink to={"setting"}>
               <button
                 className=" cursor-pointer is-drawer-close:tooltip is-drawer-close:tooltip-right border border-gray-400 p-1 flex items-center gap-2 text-lg font-bold rounded w-full"
-                data-tip="Manage Users"
+                data-tip="setting"
               >
                 {/* Settings icon */}
-                <FaUsersCog size={25} />
+                <IoIosSettings size={25} />
 
-                <span className="is-drawer-close:hidden">Manage Users</span>
-              </button>
-            </NavLink>
-            <NavLink to={"manageitems"}>
-              <button
-                className="cursor-pointer is-drawer-close:tooltip is-drawer-close:tooltip-right border border-gray-400 p-1 flex items-center gap-2 text-lg font-bold rounded w-full"
-                data-tip="Manage Items"
-              >
-                {/* Settings icon */}
-                <FaBoxOpen size={25}></FaBoxOpen>
-                <span className="is-drawer-close:hidden">Manage Items</span>
-              </button>
-            </NavLink>
-            <NavLink to={"managereservation"}>
-              <button
-                className="cursor-pointer is-drawer-close:tooltip is-drawer-close:tooltip-right border border-gray-400 p-1 flex items-center gap-2 text-lg font-bold rounded w-full"
-                data-tip="Manage Reservation"
-              >
-                {/* Settings icon */}
-                <MdEventSeat size={25}></MdEventSeat>
-                <span className="is-drawer-close:hidden">
-                  Manage Reservation
-                </span>
+                <span className="is-drawer-close:hidden">Setting</span>
               </button>
             </NavLink>
           </ul>

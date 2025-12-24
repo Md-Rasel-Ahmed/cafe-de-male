@@ -56,6 +56,8 @@ const CheckOut = () => {
   // console.log("outside", carts);
   const totalPrice = updateCarts.reduce((total, item) => total + item.price, 0);
   // console.log(totalPrice, updateCarts);
+  console.log(carts.length);
+
   return (
     <div className="min-h-screen flex justify-center items-start p-6">
       <motion.div
@@ -128,7 +130,8 @@ const CheckOut = () => {
 
           <button
             onClick={placeOrder}
-            className="btn btn-primary px-6 py-2 text-lg"
+            className="btn btn-primary px-6 py-2 text-lg "
+            disabled={carts?.length === 0 ? true : false}
           >
             Place Order
           </button>

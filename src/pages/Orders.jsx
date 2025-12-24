@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { CartProviderContext } from "../Providers/CartProvider";
 import { AuthContext } from "../Providers/AuthProvider";
+import moment from "moment/moment";
 
 const statusBadge = {
   Pending: "badge-warning",
@@ -25,6 +26,8 @@ export default function Orders() {
         setOrders(filterOrderByEmail);
       });
   }, [user?.email]);
+  const date = new Date().toLocaleTimeString();
+  console.log(date);
 
   return (
     <motion.div
@@ -37,6 +40,7 @@ export default function Orders() {
       <div className="flex items-center gap-3 mb-6">
         <FaClipboardList className="text-2xl text-primary" />
         <h2 className="text-2xl font-bold">My Orders</h2>
+        <h2 className="text-2xl font-bold"></h2>
       </div>
 
       {/* Orders */}
@@ -47,7 +51,9 @@ export default function Orders() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: index * 0.1 }}
-            className="card bg-base-100 shadow"
+            className={`card bg-base-100 shadow ${
+              order.status === "Completed" && "text-gray-600"
+            }`}
           >
             <div className="card-body">
               {/* Top */}

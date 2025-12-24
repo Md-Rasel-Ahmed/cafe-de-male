@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
+import moment from "moment";
 export const CartProviderContext = createContext(null);
 export default function CartProvider({ children }) {
   const { user } = useContext(AuthContext);
@@ -45,7 +46,7 @@ export default function CartProvider({ children }) {
     const newOrder = {
       orderId: Math.floor(Math.random() * 100000),
       id: 1,
-      date: new Date().toLocaleDateString(),
+      date: moment().format("MMMM Do YYYY, h:mm:ss a"),
       items: items,
       total: total,
       status: "Pending",
@@ -60,7 +61,11 @@ export default function CartProvider({ children }) {
       body: JSON.stringify(newOrder),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.insertedId) {
+          setCarts([]);
+        }
+      });
   };
 
   const cartInfo = {

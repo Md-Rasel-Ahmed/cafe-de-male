@@ -1,34 +1,28 @@
 import { useEffect, useState } from "react";
 import { FaClipboardList, FaEye, FaTrash } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
+import { deleteData, getData, updateData } from "../utilities/manageAPI";
 
 const statusColor = {
   Pending: "badge-warning",
   Preparing: "badge-info",
   Completed: "badge-success",
 };
+const apiName = "orders";
 
 export default function ManageOrders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
-      .then((res) => res.json())
-      .then((data) => {
-        setOrders(data);
-        console.log(data);
-      });
+    getData(apiName, setOrders);
   }, []);
-  const handleStatusChange = (id, newStatus) => {
-    fetch("http://localhost:5000/orders", {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ id, newStatus }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+  const handleStatusChange = (id, status) => {
+    updateData(id, status, orders, setOrders, apiName);
+  };
+  // handle order delete by id
+  const handleOrderDelete = (id) => {
+    deleteData(id, orders, setOrders, "order", apiName);
   };
 
   return (
@@ -97,7 +91,10 @@ export default function ManageOrders() {
                   <button className="btn btn-xs btn-outline btn-info">
                     <FaEye />
                   </button>
-                  <button className="btn btn-xs btn-outline btn-error">
+                  <button
+                    onClick={() => handleOrderDelete(order._id)}
+                    className="btn btn-xs btn-outline btn-error"
+                  >
                     <FaTrash />
                   </button>
                 </td>

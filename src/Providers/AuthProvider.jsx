@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { auth } from "./../../firebase.init";
 import {
   createUserWithEmailAndPassword,
+  deleteUser,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
@@ -16,8 +17,6 @@ export default function AuthProvider({ children }) {
       if (user) {
         setUser(user);
         setLoading(false);
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
         const uid = user.uid;
         // ...
       } else {
@@ -48,12 +47,25 @@ export default function AuthProvider({ children }) {
     setLoading(true);
     return signOut(auth);
   };
+  // Delete User form db
+  const deleteUserFromDB = () => {
+    deleteUser(user)
+      .then(() => {
+        // User deleted.
+        console.log("user Delete");
+      })
+      .catch((error) => {
+        // An error ocurred
+        // ...
+      });
+  };
   const authInfo = {
     user,
     createUser,
     logOutUser,
     loginUser,
     loading,
+    deleteUserFromDB,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { Link, Navigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
@@ -13,6 +13,7 @@ import { auth } from "../../firebase.init";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   // handle register
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,6 +23,23 @@ const Register = () => {
     const password = form.password.value;
     createUser(email, password)
       .then((userCredential) => {
+        console.log(userCredential);
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            role: "user",
+            status: "active",
+            creationTime: new Date().toDateString(),
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data));
         // Signed up
         const user = userCredential.user;
         toast.success("Registered Successed!!");
@@ -39,8 +57,8 @@ const Register = () => {
             // An error occurred
             // ...
           });
-
-        <Navigate to={"/"}></Navigate>;
+        navigate("/");
+        // <navigate to={"/"}></navigate>;
         // ...
       })
       .catch((error) => {

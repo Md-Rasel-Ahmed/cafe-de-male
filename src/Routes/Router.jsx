@@ -22,6 +22,9 @@ import ManageOrders from "../Admin/ManageOrders";
 import ManageReservation from "../Admin/ManageReservation";
 import Orders from "../pages/Orders";
 import Thank from "../pages/Thank";
+import UserInfo from "../pages/UserInfo/UsersInfo";
+import Profile from "../pages/UserInfo/Profile";
+import Setting from "../pages/UserInfo/Setting";
 
 export default function Router() {
   return (
@@ -78,6 +81,17 @@ export default function Router() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/gallery" element={<Gallery></Gallery>}></Route>
+        <Route
+          path="/profile"
+          element={
+            <PrivateRouter>
+              <UserInfo></UserInfo>
+            </PrivateRouter>
+          }
+        >
+          <Route path="profile" element={<Profile></Profile>}></Route>
+          <Route path="setting" element={<Setting></Setting>}></Route>
+        </Route>
         <Route
           path="/dashboard"
           element={

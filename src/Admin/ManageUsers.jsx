@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaUsersCog,
   FaEye,
@@ -7,30 +7,9 @@ import {
   FaUserSlash,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-const initialUsers = [
-  {
-    id: 1,
-    name: "Rasel Ahmed",
-    email: "rasel@gmail.com",
-    role: "admin",
-    status: "active",
-  },
-  {
-    id: 2,
-    name: "Nahida",
-    email: "nahida@gmail.com",
-    role: "user",
-    status: "active",
-  },
-  {
-    id: 3,
-    name: "Abdur Rahman",
-    email: "abdur@gmail.com",
-    role: "user",
-    status: "blocked",
-  },
-];
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+import { deleteData, getData, updateData } from "../utilities/manageAPI";
 
 const roleBadge = {
   admin: "badge-primary",
@@ -41,14 +20,23 @@ const statusBadge = {
   active: "badge-success",
   blocked: "badge-error",
 };
+const apiName = "users";
 
 export default function ManageUsers() {
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState([]);
+  const { deleteUserFromDB } = useContext(AuthContext);
+
+  useEffect(() => {
+    getData(apiName, setUsers);
+  }, []);
 
   const handleRoleChange = (id, newRole) => {
-    setUsers((prev) =>
-      prev.map((user) => (user.id === id ? { ...user, role: newRole } : user))
-    );
+    console.log(id);
+
+    // setUsers((prev) =>
+    //   prev.map((user) => (user.id === id ? { ...user, role: newRole } : user))
+    // );
+    updateData(id, newRole, users, setUsers, apiName);
   };
 
   const toggleStatus = (id) => {
@@ -63,7 +51,10 @@ export default function ManageUsers() {
       )
     );
   };
-
+  // handle delete user from db
+  const handleUserDelete = (id) => {
+    deleteData(id, users, setUsers, "user", apiName);
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -116,7 +107,7 @@ export default function ManageUsers() {
                       className="select select-xs select-bordered"
                       value={user.role}
                       onChange={(e) =>
-                        handleRoleChange(user.id, e.target.value)
+                        handleRoleChange(user._id, e.target.value)
                       }
                     >
                       <option value="user">User</option>
@@ -149,7 +140,10 @@ export default function ManageUsers() {
                     )}
                   </button>
 
-                  <button className="btn btn-xs btn-outline btn-error">
+                  <button
+                    onClick={() => handleUserDelete(user?._id)}
+                    className="btn btn-xs btn-outline btn-error"
+                  >
                     <FaTrash />
                   </button>
                 </td>
