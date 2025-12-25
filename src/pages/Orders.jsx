@@ -16,7 +16,9 @@ export default function Orders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch(
+      "https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/orders"
+    )
       .then((res) => res.json())
       .then((data) => {
         const filterOrderByEmail = data?.filter(

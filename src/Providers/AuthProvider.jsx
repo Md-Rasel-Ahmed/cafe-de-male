@@ -20,7 +20,9 @@ export default function AuthProvider({ children }) {
         setIsAdmin("user");
         setUser(user);
         const uid = user.uid;
-        fetch("http://localhost:5000/users")
+        fetch(
+          "https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/users"
+        )
           .then((res) => res.json())
           .then((data) => {
             const findUser = data?.find((u) => u.email === user?.email);

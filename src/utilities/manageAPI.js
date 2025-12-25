@@ -1,7 +1,9 @@
 import Swal from "sweetalert2";
 
 const getData = (apiName, changeFn) => {
-  fetch(`http://localhost:5000/${apiName}`)
+  fetch(
+    `https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/${apiName}`
+  )
     .then((res) => res.json())
     .then((data) => {
       changeFn(data);
@@ -16,13 +18,16 @@ const deleteData = (id, stodedData, changeFn, name, apiName) => {
     confirmButtonText: "Delete",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:5000/${apiName}`, {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ id }),
-      })
+      fetch(
+        `https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/${apiName}`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ id }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -37,13 +42,16 @@ const deleteData = (id, stodedData, changeFn, name, apiName) => {
 };
 
 const updateData = (id, status, stodedData, changeFn, apiName) => {
-  fetch(`http://localhost:5000/${apiName}`, {
-    method: "PUT",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ id, status }),
-  })
+  fetch(
+    `https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/${apiName}`,
+    {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ id, status }),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       console.log(data);

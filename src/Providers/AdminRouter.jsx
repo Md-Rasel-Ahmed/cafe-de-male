@@ -7,7 +7,9 @@ export default function AdminRouter({ children }) {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch(
+      "https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/users"
+    )
       .then((res) => res.json())
       .then((data) => {
         const findAdmin = data?.find((u) => u.email === user?.email);

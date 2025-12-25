@@ -53,13 +53,16 @@ export default function CartProvider({ children }) {
       email: user?.email,
     };
     setOrders([...orders, newOrder]);
-    fetch("http://localhost:5000/orders", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newOrder),
-    })
+    fetch(
+      "https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/orders",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newOrder),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
