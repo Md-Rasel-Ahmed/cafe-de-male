@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { deleteData, getData, updateData } from "../utilities/manageAPI";
+import moment from "moment/moment";
 
 const roleBadge = {
   admin: "badge-primary",
@@ -24,7 +25,7 @@ const apiName = "users";
 
 export default function ManageUsers() {
   const [users, setUsers] = useState([]);
-  const { deleteUserFromDB } = useContext(AuthContext);
+  const { deleteUserFromDB, isAdmin } = useContext(AuthContext);
 
   useEffect(() => {
     getData(apiName, setUsers);
@@ -74,7 +75,7 @@ export default function ManageUsers() {
           <thead>
             <tr>
               <th>#</th>
-              <th>User</th>
+              <th>User Name</th>
               <th>Email</th>
               <th>Role</th>
               <th>Status</th>
@@ -94,14 +95,27 @@ export default function ManageUsers() {
 
                 <td className="font-medium">{user.name}</td>
 
-                <td>{user.email}</td>
+                <td
+                  className="tooltip cursor-pointer tooltip-secondary"
+                  data-tip={`${moment(user.creationTime).fromNow()}`}
+                >
+                  <span>{user.email}</span>
+                </td>
 
                 {/* Role */}
                 <td>
                   <div className="flex items-center gap-2">
-                    <span className={`badge ${roleBadge[user.role]}`}>
-                      {user.role}
-                    </span>
+                    <div className="indicator">
+                      {user.role === "admin" && (
+                        <span className="indicator-item badge  badge-secondary">
+                          Me
+                        </span>
+                      )}
+
+                      <span className={`badge ${roleBadge[user.role]}`}>
+                        {user.role}
+                      </span>
+                    </div>
 
                     <select
                       className="select select-xs select-bordered"

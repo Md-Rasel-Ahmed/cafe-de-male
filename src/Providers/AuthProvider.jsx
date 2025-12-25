@@ -10,14 +10,25 @@ import {
 
 export const AuthContext = createContext(null);
 export default function AuthProvider({ children }) {
+  const [isAdmin, setIsAdmin] = useState("user");
+  const [creationTime, setCreationTime] = useState("");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const subscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
+        setIsAdmin("user");
         setUser(user);
-        setLoading(false);
         const uid = user.uid;
+        fetch("http://localhost:5000/users")
+          .then((res) => res.json())
+          .then((data) => {
+            const findUser = data?.find((u) => u.email === user?.email);
+            setCreationTime(findUser.creationTime);
+            setIsAdmin(findUser.role);
+            setLoading(false);
+            // setUsers(findAdmin);
+          });
         // ...
       } else {
         setUser(null);
@@ -66,6 +77,8 @@ export default function AuthProvider({ children }) {
     loginUser,
     loading,
     deleteUserFromDB,
+    isAdmin,
+    creationTime,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

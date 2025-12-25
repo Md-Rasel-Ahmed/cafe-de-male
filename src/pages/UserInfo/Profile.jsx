@@ -11,7 +11,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import moment from "moment";
 
 export default function Profile() {
-  const { user } = useContext(AuthContext);
+  const { user, creationTime } = useContext(AuthContext);
   console.log(user);
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
@@ -66,7 +66,10 @@ export default function Profile() {
             <div className="flex items-center gap-3">
               <FaCalendarAlt className="text-primary" />
               <span className="font-medium">Joined:</span>
-              <span className="ml-auto">{user?.metadata.creationTime}</span>
+
+              <span className="ml-auto">
+                {creationTime + ` (${moment(creationTime).fromNow()})`}
+              </span>
             </div>
           </div>
 

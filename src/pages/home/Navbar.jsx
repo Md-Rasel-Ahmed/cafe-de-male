@@ -9,7 +9,7 @@ const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { carts } = useContext(CartProviderContext);
-  const { user, logOutUser } = useContext(AuthContext);
+  const { user, logOutUser, isAdmin } = useContext(AuthContext);
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
 
@@ -78,9 +78,11 @@ const Navbar = () => {
               <li className="text-xl">
                 <NavLink to="/menus">Menu</NavLink>
               </li>
-              <li className="text-xl">
-                <NavLink to="/orders">Orders</NavLink>
-              </li>
+              {user?.email && (
+                <li className="text-xl">
+                  <NavLink to="/orders">Orders</NavLink>
+                </li>
+              )}
               <li className="text-xl">
                 <NavLink to="/reservation">Reservation</NavLink>
               </li>
@@ -112,9 +114,11 @@ const Navbar = () => {
             <li className="text-xl">
               <NavLink to="/reservation">Reservation</NavLink>
             </li>
-            <li className="text-xl">
-              <NavLink to="/orders">Orders</NavLink>
-            </li>
+            {user?.email && (
+              <li className="text-xl">
+                <NavLink to="/orders">Orders</NavLink>
+              </li>
+            )}
             <li className="text-xl">
               <NavLink to="/contact">Contact</NavLink>
             </li>
@@ -202,12 +206,15 @@ const Navbar = () => {
                     >
                       Setting
                     </Link>
-                    <Link
-                      className="bg-gray-300 p-1 rounded hover:bg-secondary text-black"
-                      to={"/dashboard"}
-                    >
-                      Dashboard
-                    </Link>
+                    {isAdmin === "admin" && (
+                      <Link
+                        className="bg-gray-300 p-1 rounded hover:bg-secondary text-black"
+                        to={"/dashboard"}
+                      >
+                        Dashboard
+                      </Link>
+                    )}
+
                     <button onClick={handleLogOut} className="btn btn-error">
                       Logout
                     </button>

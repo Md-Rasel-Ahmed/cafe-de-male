@@ -25,6 +25,7 @@ import Thank from "../pages/Thank";
 import UserInfo from "../pages/UserInfo/UsersInfo";
 import Profile from "../pages/UserInfo/Profile";
 import Setting from "../pages/UserInfo/Setting";
+import AdminRouter from "../Providers/AdminRouter";
 
 export default function Router() {
   return (
@@ -96,7 +97,9 @@ export default function Router() {
           path="/dashboard"
           element={
             <PrivateRouter>
-              <Dashboard></Dashboard>
+              <AdminRouter>
+                <Dashboard></Dashboard>
+              </AdminRouter>
             </PrivateRouter>
           }
         >

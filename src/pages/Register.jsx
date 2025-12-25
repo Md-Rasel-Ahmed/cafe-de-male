@@ -35,7 +35,7 @@ const Register = () => {
             email,
             role: "user",
             status: "active",
-            creationTime: new Date().toDateString(),
+            creationTime: new Date().toLocaleString(),
           }),
         })
           .then((res) => res.json())
