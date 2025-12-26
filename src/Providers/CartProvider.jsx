@@ -3,6 +3,9 @@ import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 import moment from "moment";
 export const CartProviderContext = createContext(null);
+const liveUrl = "https://cafe-de-male-server.vercel.app/api";
+
+const localUrl = "http://localhost:5000/api";
 export default function CartProvider({ children }) {
   const { user } = useContext(AuthContext);
   const [carts, setCarts] = useState([]);
@@ -53,16 +56,13 @@ export default function CartProvider({ children }) {
       email: user?.email,
     };
     setOrders([...orders, newOrder]);
-    fetch(
-      "https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/orders",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newOrder),
-      }
-    )
+    fetch(`${liveUrl}/orders`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newOrder),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {

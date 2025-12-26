@@ -1,12 +1,13 @@
 import Swal from "sweetalert2";
-
+import Loading from "../Shared/Loading";
+const liveUrl = "https://cafe-de-male-server.vercel.app/api";
+// const localUrl = "http://localhost:5000/api";
 const getData = (apiName, changeFn) => {
-  fetch(
-    `https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/${apiName}`
-  )
+  fetch(`${liveUrl}/${apiName}`)
     .then((res) => res.json())
     .then((data) => {
       changeFn(data);
+      console.log(data);
     });
 };
 
@@ -18,16 +19,13 @@ const deleteData = (id, stodedData, changeFn, name, apiName) => {
     confirmButtonText: "Delete",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(
-        `https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/${apiName}`,
-        {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ id }),
-        }
-      )
+      fetch(`${liveUrl}/${apiName}/${id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -42,24 +40,30 @@ const deleteData = (id, stodedData, changeFn, name, apiName) => {
 };
 
 const updateData = (id, status, stodedData, changeFn, apiName) => {
-  fetch(
-    `https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/${apiName}`,
-    {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ id, status }),
-    }
-  )
+  console.log(status, apiName);
+  fetch(`${liveUrl}/${apiName}/${id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ id, status }),
+  })
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if (data.modifiedCount == 1) {
-        const findOrder = stodedData?.find((order) => order._id === id);
-        findOrder.role = status;
-        changeFn([...stodedData]);
+      const findData = stodedData?.find((order) => order._id === id);
+      if (apiName === "orders") {
+        findData.status = status;
+        console.log(findData);
       }
+      if (apiName === "users") {
+        findData.role = status;
+        console.log(findData);
+      }
+
+      changeFn([...stodedData]);
+      // console.log(findData);
     });
 };
+
 export { deleteData, updateData, getData };

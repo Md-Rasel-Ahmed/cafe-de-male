@@ -1,15 +1,15 @@
 import React, { Children, useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 import { Navigate, useLocation, useNavigate } from "react-router";
-
+const liveUrl =
+  "https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app";
+const localUrl = "http://localhost:5000/api";
 export default function AdminRouter({ children }) {
   const { user, loading } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(
-      "https://cafe-de-male-server-msxdx3d8j-md-rasel-ahmeds-projects.vercel.app/users"
-    )
+    fetch(`${localUrl}/users`)
       .then((res) => res.json())
       .then((data) => {
         const findAdmin = data?.find((u) => u.email === user?.email);

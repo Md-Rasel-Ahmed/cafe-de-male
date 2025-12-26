@@ -3,6 +3,7 @@ import { FaClipboardList, FaEye, FaTrash } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import { deleteData, getData, updateData } from "../utilities/manageAPI";
+import Loading from "../Shared/Loading";
 
 const statusColor = {
   Pending: "badge-warning",
@@ -16,9 +17,12 @@ export default function ManageOrders() {
 
   useEffect(() => {
     getData(apiName, setOrders);
+    // console.log(orders);
   }, []);
   const handleStatusChange = (id, status) => {
     updateData(id, status, orders, setOrders, apiName);
+    // console.log(orders, status);
+    // setOrders()
   };
   // handle order delete by id
   const handleOrderDelete = (id) => {
@@ -37,7 +41,7 @@ export default function ManageOrders() {
         <FaClipboardList className="text-2xl text-primary" />
         <h2 className="text-2xl font-bold">Manage Orders</h2>
       </div>
-
+      {orders?.length <= 0 && <Loading></Loading>}
       {/* Table */}
       <div className="overflow-x-auto bg-base-100 rounded-xl shadow">
         <table className="table table-zebra">

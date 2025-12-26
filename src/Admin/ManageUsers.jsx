@@ -9,8 +9,14 @@ import {
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { deleteData, getData, updateData } from "../utilities/manageAPI";
+import {
+  deleteData,
+  getData,
+  loadingFn,
+  updateData,
+} from "../utilities/manageAPI";
 import moment from "moment/moment";
+import Loading from "../Shared/Loading";
 
 const roleBadge = {
   admin: "badge-primary",
@@ -25,7 +31,7 @@ const apiName = "users";
 
 export default function ManageUsers() {
   const [users, setUsers] = useState([]);
-  const { deleteUserFromDB, isAdmin } = useContext(AuthContext);
+  const { deleteUserFromDB, isAdmin, user: dbUser } = useContext(AuthContext);
 
   useEffect(() => {
     getData(apiName, setUsers);
@@ -56,6 +62,7 @@ export default function ManageUsers() {
   const handleUserDelete = (id) => {
     deleteData(id, users, setUsers, "user", apiName);
   };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -68,7 +75,7 @@ export default function ManageUsers() {
         <FaUsersCog className="text-2xl text-primary" />
         <h2 className="text-2xl font-bold">Manage Users</h2>
       </div>
-
+      {users?.length <= 0 && <Loading></Loading>}
       {/* Table */}
       <div className="overflow-x-auto bg-base-100 rounded-xl shadow">
         <table className="table table-zebra">
@@ -106,7 +113,7 @@ export default function ManageUsers() {
                 <td>
                   <div className="flex items-center gap-2">
                     <div className="indicator">
-                      {user.role === "admin" && (
+                      {user.email === dbUser?.email && (
                         <span className="indicator-item badge  badge-secondary">
                           Me
                         </span>
