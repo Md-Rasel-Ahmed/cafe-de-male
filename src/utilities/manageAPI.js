@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 import Loading from "../Shared/Loading";
-const liveUrl = "https://cafe-de-male-server.vercel.app/api";
+const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 // const localUrl = "http://localhost:5000/api";
 const getData = (apiName, changeFn) => {
   fetch(`${liveUrl}/${apiName}`)

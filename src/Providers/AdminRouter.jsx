@@ -1,7 +1,7 @@
 import React, { Children, useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 import { Navigate, useLocation, useNavigate } from "react-router";
-const liveUrl = "https://cafe-de-male-server.vercel.app/api";
+const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 
 const localUrl = "http://localhost:5000/api";
 export default function AdminRouter({ children }) {

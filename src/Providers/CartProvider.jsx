@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 import moment from "moment";
 export const CartProviderContext = createContext(null);
-const liveUrl = "https://cafe-de-male-server.vercel.app/api";
+const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 
 const localUrl = "http://localhost:5000/api";
 export default function CartProvider({ children }) {

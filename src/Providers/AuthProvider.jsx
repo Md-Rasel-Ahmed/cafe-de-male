@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 const localurl = "http://localhost:5000";
-const liveUrl = "https://cafe-de-male-server.vercel.app/api";
+const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 
 export const AuthContext = createContext(null);
 export default function AuthProvider({ children }) {

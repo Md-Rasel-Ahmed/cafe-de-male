@@ -9,12 +9,7 @@ import {
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import {
-  deleteData,
-  getData,
-  loadingFn,
-  updateData,
-} from "../utilities/manageAPI";
+import { deleteData, getData, updateData } from "../utilities/manageAPI";
 import moment from "moment/moment";
 import Loading from "../Shared/Loading";
 
