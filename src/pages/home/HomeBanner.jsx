@@ -54,7 +54,7 @@ export default function HomeBanner() {
             }}
             src="https://i.ibb.co/v4gwh5vG/amanda.jpg"
             alt=""
-            className="w-80 h-80 rounded-full"
+            className="lg:w-80 w-40 h-40 lg:h-80 rounded-full"
           />
           <motion.img
             animate={{ y: [10, 0, 10] }}
@@ -65,7 +65,7 @@ export default function HomeBanner() {
             }}
             src="https://i.ibb.co/dwBWNWzs/reshma.jpg"
             alt=""
-            className="w-80 h-80 rounded-full ml-50 -mt-30"
+            className="lg:w-80 w-40 h-40 lg:h-80 rounded-full -mt-30 ml-50"
           />
         </div>
       </div>

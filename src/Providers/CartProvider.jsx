@@ -1,24 +1,31 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 import moment from "moment";
+import { setData } from "../utilities/localStoreDb";
 export const CartProviderContext = createContext(null);
 const liveUrl = "https://cafe-de-male-server.onrender.com/api";
-
 const localUrl = "http://localhost:5000/api";
 export default function CartProvider({ children }) {
   const { user } = useContext(AuthContext);
   const [carts, setCarts] = useState([]);
+  const [lsCarts, setLsCarts] = useState();
   const [orders, setOrders] = useState([]);
   const [total, setTotal] = useState(0);
+  useEffect(() => {
+    const data = localStorage.getItem("cart");
+    setLsCarts(data);
+  }, []);
   const cartAdded = (menu) => {
     const id = menu.id;
     const findItem = carts.find((cart) => cart.id == id);
+
     if (findItem) return toast.error("The food already exited!");
     setCarts([...carts, menu]);
     const newTotal = total + parseFloat(menu.price);
     setTotal(newTotal);
     toast.success(`${menu.name} Added To Cart!`);
+    setData(id);
   };
   //   delete cart
   const deleteCart = (id) => {
@@ -79,6 +86,7 @@ export default function CartProvider({ children }) {
     incress,
     orderAdd,
     orders,
+    lsCarts,
   };
   return (
     <CartProviderContext.Provider value={cartInfo}>

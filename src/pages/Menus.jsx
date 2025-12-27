@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+import { CiSearch } from "react-icons/ci";
 
 import { FaCartArrowDown } from "react-icons/fa";
 import { CartProviderContext } from "./../Providers/CartProvider";
@@ -83,6 +84,7 @@ export default function Menus() {
   const [catagoris, setCatagoris] = useState([]);
   const [menus, setMenus] = useState(beverage);
   const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState("fdsf");
   const [clickBtn, setClickBtn] = useState("Beverages");
   const { cartAdded } = useContext(CartProviderContext);
   const navigate = useNavigate();
@@ -127,7 +129,26 @@ export default function Menus() {
     menu.quantity = quantity;
     cartAdded(menu);
   };
+  // search
+  const handleSearch = async () => {
+    await fetch("/menus.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setMenus("");
+        setLoading(true);
+        const filterItems = data.filter(
+          (item) => item.name.toLowerCase().includes(searchText.toLowerCase())
+          // item.name.includes("Maldivian".toLowerCase())
+        );
+        console.log(filterItems);
 
+        setMenus(filterItems);
+        setLoading(false);
+        setSearchText("");
+      });
+
+    // console.log(a);
+  };
   return (
     <div
       className="min-h-screen justify-center bg-cover bg-base-300 "
@@ -171,13 +192,37 @@ export default function Menus() {
           </NavLink>
           <NavLink className="p-2 rounded" to={"dishes"}>
             Dishes
-          </NavLink>
+            </NavLink>
           <NavLink className="p-2 rounded" to={"desserts"}>
             Desserts
-          </NavLink>
-          <NavLink className="p-2 rounded" to={"drinks"}>
+            </NavLink>
+            <NavLink className="p-2 rounded" to={"drinks"}>
             Drinks
-          </NavLink> */}
+            </NavLink> */}
+        </div>
+        <div className="flex justify-center">
+          <div className="join">
+            <div>
+              <label className="input validator join-item">
+                <CiSearch size={25} />
+
+                <input
+                  type="email"
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                  placeholder="Type here...."
+                  className=""
+                  required
+                />
+              </label>
+            </div>
+            <button
+              onClick={handleSearch}
+              className="btn btn-secondary join-item"
+            >
+              Search
+            </button>
+          </div>
         </div>
         {loading && (
           <div className="mt-10 flex justify-center items-center">

@@ -5,27 +5,40 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Link, Navigate, useNavigate } from "react-router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase.init";
+const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [photo, setPhoto] = useState(null);
   const navigate = useNavigate();
   // handle register
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    const formData = new FormData();
+    formData.append("image", photo);
+    console.log(formData);
+    const res = await fetch(
+      "https://api.imgbb.com/1/upload?key=adbb7d7935ea9c40a8b8dfa8127a1bdc",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    const data = await res.json();
+    setPhoto(data.data.url);
+
     const email = form.email.value;
     const password = form.password.value;
-    createUser(email, password)
+    await createUser(email, password)
       .then((userCredential) => {
-        console.log(userCredential);
-
-        fetch("http://localhost:5000/users", {
+        fetch(`${liveUrl}/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -40,12 +53,12 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => console.log(data));
+
         // Signed up
-        const user = userCredential.user;
         toast.success("Registered Successed!!");
         updateProfile(auth.currentUser, {
-          tenantId: "admin",
           displayName: name,
+          photoURL: photo,
         })
           .then(() => {
             // Profile updated!
@@ -58,15 +71,11 @@ const Register = () => {
             // ...
           });
         navigate("/");
-        // <navigate to={"/"}></navigate>;
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         toast.error("Somethink is happended!");
-
-        // ..
       });
   };
 
@@ -94,7 +103,6 @@ const Register = () => {
                 name="name"
                 placeholder="Enter your full name"
                 className="input input-bordered w-full pl-10 focus:outline-0 "
-                required
               />
             </div>
 
@@ -106,7 +114,6 @@ const Register = () => {
                 name="email"
                 placeholder="Enter your email"
                 className="input input-bordered w-full pl-10 focus:outline-0"
-                required
               />
             </div>
 
@@ -118,7 +125,6 @@ const Register = () => {
                 name="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full pl-10 focus:outline-0"
-                required
               />
             </div>
 
@@ -129,7 +135,14 @@ const Register = () => {
                 type="password"
                 placeholder="Confirm your password"
                 className="input input-bordered w-full pl-10 focus:outline-0"
-                required
+              />
+            </div>
+            <div className="relative">
+              <input
+                type="file"
+                accept="image/*"
+                className="border w-full p-2 rounded border-gray-600 cursor-pointer"
+                onChange={(e) => setPhoto(e.target.files[0])}
               />
             </div>
 

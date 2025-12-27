@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { use, useContext, useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 import { CartProviderContext } from "../../Providers/CartProvider";
@@ -8,21 +8,36 @@ import { toast } from "react-toastify";
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const { carts } = useContext(CartProviderContext);
+  const { carts, lsCarts } = useContext(CartProviderContext);
+
+  const [scrollUpDistance, setScrollUpDistance] = useState(0);
+
   const { user, logOutUser, isAdmin } = useContext(AuthContext);
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY) {
-      // scrolling down
-      setShowNavbar(false);
-    } else {
-      // scrolling up
+    if (currentScrollY === 0) {
       setShowNavbar(true);
+      setScrollUpDistance(0);
+      setLastScrollY(0);
+      return;
+    }
+    if (currentScrollY < lastScrollY) {
+      // scrolling UP
+      const diff = lastScrollY - currentScrollY;
+      setScrollUpDistance((prev) => prev + diff);
+
+      if (scrollUpDistance + diff >= 100) {
+        setShowNavbar(false);
+      }
+    } else {
+      // scrolling DOWN
+      setShowNavbar(true);
+      setScrollUpDistance(0); // reset
     }
 
     setLastScrollY(currentScrollY);
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -30,6 +45,7 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
+
   const totalPrice = carts.reduce((total, item) => total + item.price, 0);
   // logut user
   const handleLogOut = () => {
@@ -42,6 +58,8 @@ const Navbar = () => {
         // An error happened.
       });
   };
+  // console.log(lsCarts);
+
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50  transition-transform duration-300
@@ -72,32 +90,44 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li className="text-xl">
-                <NavLink to="/">Home</NavLink>
+              <li className="text-xl ">
+                <NavLink className={"text-2xl"} to="/">
+                  Home
+                </NavLink>
               </li>
               <li className="text-xl">
-                <NavLink to="/menus">Menu</NavLink>
+                <NavLink className={"text-2xl"} to="/menus">
+                  Menu
+                </NavLink>
               </li>
               {user?.email && (
                 <li className="text-xl">
-                  <NavLink to="/orders">Orders</NavLink>
+                  <NavLink className={"text-2xl"} to="/orders">
+                    Orders
+                  </NavLink>
                 </li>
               )}
               <li className="text-xl">
-                <NavLink to="/reservation">Reservation</NavLink>
+                <NavLink className={"text-2xl"} to="/reservation">
+                  Reservation
+                </NavLink>
               </li>
               <li className="text-xl">
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink className={"text-2xl"} to="/contact">
+                  Contact
+                </NavLink>
               </li>
               <li className="text-xl">
-                <NavLink to="/gallery">Gallery</NavLink>
+                <NavLink className={"text-2xl"} to="/gallery">
+                  Gallery
+                </NavLink>
               </li>
             </ul>
           </div>
 
           {/* Logo */}
 
-          <Link to="/" className="text-2xl font-bold text-primary">
+          <Link to="/" className="lg:text-2xl text-xl font-bold text-primary">
             Cafe De <span className="text-secondary">Male</span>
           </Link>
         </div>
@@ -105,7 +135,7 @@ const Navbar = () => {
         {/* Center (Desktop Menu) */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-medium">
-            <li className="text-xl">
+            <li className="text-xl ">
               <NavLink to="/">Home</NavLink>
             </li>
             <li className="text-xl">
@@ -196,7 +226,7 @@ const Navbar = () => {
                   <ul className="flex flex-col gap-2">
                     <Link
                       className="bg-gray-300 p-1 rounded hover:bg-secondary text-black"
-                      to="/profile"
+                      to="/profile/profile"
                     >
                       Profile
                     </Link>

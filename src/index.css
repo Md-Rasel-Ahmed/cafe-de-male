@@ -27,3 +27,7 @@ li a.active{
   background-color: #F43098;
   border-radius: 4px;
 }
+.sidebar_menus a:hover{
+  background-color: #F43098;
+  border-radius: 4px;
+}

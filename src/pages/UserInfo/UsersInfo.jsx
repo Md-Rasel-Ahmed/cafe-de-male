@@ -63,7 +63,7 @@ export default function UserInfo() {
         ></label>
         <div className="flex min-h-full flex-col  bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
           {/* Sidebar content here */}
-          <ul className="menu sidebar_menus w-full grow gap-3  md:mt-0 mt-15">
+          <ul className="menu sidebar_menus w-full grow gap-3 bg-base-300  md:mt-0 mt-15">
             {/* List item */}
             <NavLink to={"profile"}>
               <button
@@ -72,7 +72,7 @@ export default function UserInfo() {
               >
                 {/* Home icon */}
                 <CgProfile size={25}></CgProfile>
-                <span className="is-drawer-close:hidden">Profile</span>
+                <span className="is-drawer-close:hidden ">Profile</span>
               </button>
             </NavLink>
 

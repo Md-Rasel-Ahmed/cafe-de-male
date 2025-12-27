@@ -14,7 +14,7 @@ export default function MainLayOut() {
         <Outlet />
       </div>
       <Footer></Footer>
-      <ToastContainer />
+      <ToastContainer autoClose={1000} />
     </div>
   );
 }

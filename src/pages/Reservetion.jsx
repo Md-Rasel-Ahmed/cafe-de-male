@@ -41,10 +41,10 @@ const Reservetion = () => {
         >
           <div className="hero ">
             <div className="hero-content flex-col  lg:flex-row-reverse">
-              <div className="text-center lg:text-left w-100">
+              <div className="text-center lg:text-left  w-70 lg:w-100">
                 <Lottie animationData={reservationLottie} loop={true}></Lottie>
               </div>
-              <form className="flex flex-col gap-6 w-100">
+              <form className="flex flex-col gap-6 w-70 ;g:w-100">
                 {/* Date */}
                 <div className="relative">
                   <FaCalendarAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-primary" />
