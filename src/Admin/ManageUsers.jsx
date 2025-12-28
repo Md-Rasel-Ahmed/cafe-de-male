@@ -26,6 +26,7 @@ const apiName = "users";
 
 export default function ManageUsers() {
   const [users, setUsers] = useState([]);
+  const [toggleS, setToggleS] = useState(false);
   const { deleteUserFromDB, isAdmin, user: dbUser } = useContext(AuthContext);
 
   useEffect(() => {
@@ -41,17 +42,28 @@ export default function ManageUsers() {
     updateData(id, newRole, users, setUsers, apiName);
   };
 
-  const toggleStatus = (id) => {
-    setUsers((prev) =>
-      prev.map((user) =>
-        user.id === id
-          ? {
-              ...user,
-              status: user.status === "active" ? "blocked" : "active",
-            }
-          : user
-      )
-    );
+  const toggleStatus = (id, status) => {
+    let statusToggle = status;
+    if (statusToggle === "active") {
+      status = "blocked";
+    }
+    if (statusToggle === "blocked") {
+      status = "active";
+    }
+    console.log(id, status, statusToggle);
+
+    updateData(id, status, users, setUsers, apiName);
+
+    // setUsers((prev) =>
+    //   prev.map((user) =>
+    //     user.id === id
+    //       ? {
+    //           ...user,
+    //           status: user.status === "active" ? "blocked" : "active",
+    //         }
+    //       : user
+    //   )
+    // );
   };
   // handle delete user from db
   const handleUserDelete = (id) => {
@@ -88,6 +100,7 @@ export default function ManageUsers() {
           <tbody>
             {users.map((user, index) => (
               <motion.tr
+                className=""
                 key={user.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -146,7 +159,7 @@ export default function ManageUsers() {
                   </button>
 
                   <button
-                    onClick={() => toggleStatus(user.id)}
+                    onClick={(e) => toggleStatus(user._id, user.status)}
                     className="btn btn-xs btn-outline btn-warning"
                   >
                     {user.status === "active" ? (

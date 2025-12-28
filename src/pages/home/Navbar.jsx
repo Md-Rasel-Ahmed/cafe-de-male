@@ -73,7 +73,7 @@ const Navbar = () => {
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-8 w-8"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -170,7 +170,7 @@ const Navbar = () => {
               <div className="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-7 w-7"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -213,8 +213,8 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle"
               >
                 <div className="avatar avatar-online">
-                  <div className="w-8 rounded-full">
-                    <img src="https://img.daisyui.com/images/profile/demo/idiotsandwich@192.webp" />
+                  <div className="w-12 rounded-full">
+                    <img src={user?.photoURL} />
                   </div>
                 </div>
               </div>

@@ -7,12 +7,14 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-const localurl = "http://localhost:5000";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+const localurl = "http://localhost:5000/api";
 const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 
 export const AuthContext = createContext(null);
 export default function AuthProvider({ children }) {
-  const [isAdmin, setIsAdmin] = useState("");
+  const [isAdmin, setIsAdmin] = useState("user");
   const [creationTime, setCreationTime] = useState("");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,15 +24,23 @@ export default function AuthProvider({ children }) {
         setIsAdmin("");
         setUser(user);
         setLoading(false);
-        const uid = user.uid;
-        fetch(`${liveUrl}/users`)
+        const email = user.email;
+        fetch(`${liveUrl}/users/${email}`)
           .then((res) => res.json())
           .then((data) => {
-            const findUser = data?.find((u) => u.email === user?.email);
-            setCreationTime(findUser.creationTime);
-            setIsAdmin(findUser.role);
-            // setLoading(false);
-            // setUsers(findAdmin);
+            // const findUser = data?.find((u) => u.email === user?.email);
+            if (data.status === "blocked") {
+              setUser(null);
+              Swal.fire({
+                icon: "error",
+                title: "Sorry...",
+                text: "You can,t login because your are blocked user!",
+              });
+            }
+            setCreationTime(data.creationTime);
+            setIsAdmin(data.role);
+            setLoading(false);
+            // setUsers(data);
           });
         // ...
       } else {
@@ -41,6 +51,8 @@ export default function AuthProvider({ children }) {
 
         // ...
       }
+      // setLoading(false);
+
       return () => {
         subscribe();
       };
@@ -54,7 +66,25 @@ export default function AuthProvider({ children }) {
   // login user
   const loginUser = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    fetch(`${liveUrl}/users/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // const findUser = data?.find((u) => u.email === user?.email);
+        console.log(data);
+        if (data.status === "blocked") {
+          setLoading(false);
+          return Swal.fire({
+            icon: "error",
+            title: "Sorry...",
+            text: "You can,t login because your are blocked user!",
+          });
+        } else {
+          return signInWithEmailAndPassword(auth, email, password);
+        }
+        // setCreationTime(data.creationTime);
+        // setIsAdmin(data.role);
+        // setUsers(data);
+      });
   };
   // singout user
   const logOutUser = () => {

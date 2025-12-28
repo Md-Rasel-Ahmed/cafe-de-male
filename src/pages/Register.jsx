@@ -10,10 +10,11 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase.init";
+const localUrl = "http://localhost:5000/api";
 const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, loading } = useContext(AuthContext);
   const [photo, setPhoto] = useState(null);
   const navigate = useNavigate();
   // handle register
@@ -23,7 +24,7 @@ const Register = () => {
     const name = form.name.value;
     const formData = new FormData();
     formData.append("image", photo);
-    console.log(formData);
+    // console.log(formData);
     const res = await fetch(
       "https://api.imgbb.com/1/upload?key=adbb7d7935ea9c40a8b8dfa8127a1bdc",
       {
@@ -32,10 +33,12 @@ const Register = () => {
       }
     );
     const data = await res.json();
-    setPhoto(data.data.url);
-
+    const url = data.data.url;
+    // setPhoto(data.data.url);
+    // console.log(url);
     const email = form.email.value;
     const password = form.password.value;
+
     await createUser(email, password)
       .then((userCredential) => {
         fetch(`${liveUrl}/users`, {
@@ -58,7 +61,7 @@ const Register = () => {
         toast.success("Registered Successed!!");
         updateProfile(auth.currentUser, {
           displayName: name,
-          photoURL: photo,
+          photoURL: url,
         })
           .then(() => {
             // Profile updated!
@@ -146,7 +149,13 @@ const Register = () => {
               />
             </div>
 
-            <button className="btn btn-primary btn-lg w-full">Sign Up</button>
+            <button className="btn btn-primary btn-lg w-full">
+              {loading ? (
+                <span className="loading loading-spinner loading-md"></span>
+              ) : (
+                "Sign Up"
+              )}
+            </button>
           </form>
 
           <p className="text-sm text-center mt-6">

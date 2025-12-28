@@ -11,8 +11,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import moment from "moment";
 
 export default function Profile() {
-  const { user, creationTime } = useContext(AuthContext);
-  console.log(user);
+  const { user, creationTime, isAdmin } = useContext(AuthContext);
+  // console.log(user);
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
       <motion.div
@@ -30,11 +30,7 @@ export default function Profile() {
             className="avatar"
           >
             <div className="w-28 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img
-                src="https://i.ibb.co/dwBWNWzs/reshma.jpg"
-                alt="Profile"
-                className=""
-              />
+              <img src={user?.photoURL} alt="Profile" className="" />
             </div>
           </motion.div>
 
@@ -50,7 +46,7 @@ export default function Profile() {
           {/* Role */}
           <span className="badge badge-primary mt-2 flex items-center gap-1">
             <FaUserShield />
-            User
+            {isAdmin}
           </span>
 
           <div className="divider"></div>
@@ -68,7 +64,8 @@ export default function Profile() {
               <span className="font-medium">Joined:</span>
 
               <span className="ml-auto">
-                {creationTime + ` (${moment(creationTime).fromNow()})`}
+                {creationTime +
+                  ` (${moment(new Date(creationTime)).fromNow()})`}
               </span>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import Loading from "../Shared/Loading";
+const localUrl = "http://localhost:5000/api";
 const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 // const localUrl = "http://localhost:5000/api";
 const getData = (apiName, changeFn) => {
@@ -40,7 +41,8 @@ const deleteData = (id, stodedData, changeFn, name, apiName) => {
 };
 
 const updateData = (id, status, stodedData, changeFn, apiName) => {
-  console.log(status, apiName);
+  console.log(status);
+
   fetch(`${liveUrl}/${apiName}/${id}`, {
     method: "PUT",
     headers: {
@@ -50,15 +52,20 @@ const updateData = (id, status, stodedData, changeFn, apiName) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       const findData = stodedData?.find((order) => order._id === id);
       if (apiName === "orders") {
         findData.status = status;
-        console.log(findData);
+        // console.log(findData);
       }
-      if (apiName === "users") {
+      if ((apiName === "users" && status === "user") || status === "admin") {
         findData.role = status;
-        console.log(findData);
+      }
+      if (
+        (apiName === "users" && status === "active") ||
+        status === "blocked"
+      ) {
+        findData.status = status;
       }
 
       changeFn([...stodedData]);

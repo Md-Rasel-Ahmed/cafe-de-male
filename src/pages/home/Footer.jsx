@@ -6,7 +6,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
         {/* About */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Tastyc</h2>
+          <h1 className=" text-2xl font-bold text-primary">
+            Cafe De <span className="text-secondary">Male</span>
+          </h1>
           <p>
             Best restaurant experience with fresh ingredients, delicious dishes,
             and exceptional service. We create memorable moments for our guests.

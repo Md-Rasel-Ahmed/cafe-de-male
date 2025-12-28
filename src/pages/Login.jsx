@@ -9,7 +9,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, loading } = useContext(AuthContext);
   const location = useLocation();
   console.log(location);
   const from = location.state || "/";
@@ -23,7 +23,7 @@ const Login = () => {
     loginUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        toast.success("Singin Successed!");
+        toast.success("Login Successed!");
         navigate(from);
         // ...
       })
@@ -101,7 +101,14 @@ const Login = () => {
               <a className="link link-hover text-primary">Forgot password?</a>
             </div>
 
-            <button className="btn btn-primary btn-lg w-full">Login</button>
+            <button className="btn btn-primary btn-lg w-full">
+              {" "}
+              {loading ? (
+                <span className="loading loading-spinner loading-md"></span>
+              ) : (
+                "Login"
+              )}
+            </button>
           </form>
 
           <p className="text-sm text-center mt-6">
