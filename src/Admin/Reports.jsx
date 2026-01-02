@@ -55,7 +55,7 @@ const Reports = () => {
       .catch(() => {
         setLoading(false);
       });
-    fetch(`${localUrl}/users`)
+    fetch(`${liveUrl}/users`)
       .then((res) => res.json())
       .then((data) => setUsers(data));
     fetch(`/menus.json`)
