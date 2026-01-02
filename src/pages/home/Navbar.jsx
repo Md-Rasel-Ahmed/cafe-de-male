@@ -223,9 +223,9 @@ const Navbar = () => {
             </div>
             <div
               tabIndex={0}
-              className="card card-compact dropdown-content bg-primary z-1 mt-3 w-80 shadow"
+              className="card card-compact dropdown-content bg-primary z-1 mt-3 w-80 -mr-10 shadow"
             >
-              <div className="card-body">
+              <div className="card-body ">
                 {notifications?.length <= 0 ? (
                   <div className="flex flex-col justify-center items-center gap-2">
                     <IoNotificationsOff size={70} />
