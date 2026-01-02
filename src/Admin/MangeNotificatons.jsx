@@ -11,7 +11,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { FiTrash2, FiCheckCircle, FiPlus } from "react-icons/fi";
-import { firestore } from "../../firebase";
+import { firestore } from "../../firebase.init";
 
 export default function ManageNotifications() {
   const [notifications, setNotifications] = useState([]);

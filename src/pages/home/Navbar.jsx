@@ -22,8 +22,8 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
-import { firestore } from "../../../firebase";
 import moment from "moment/moment";
+import { firestore } from "../../../firebase.init";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
