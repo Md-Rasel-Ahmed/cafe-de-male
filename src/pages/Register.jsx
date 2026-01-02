@@ -14,12 +14,13 @@ const localUrl = "http://localhost:5000/api";
 const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 
 const Register = () => {
-  const { createUser, loading } = useContext(AuthContext);
+  const { createUser, loading, setLoading } = useContext(AuthContext);
   const [photo, setPhoto] = useState(null);
   const navigate = useNavigate();
   // handle register
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const name = form.name.value;
     const formData = new FormData();
@@ -51,6 +52,7 @@ const Register = () => {
             email,
             role: "user",
             status: "active",
+            userPhoto: url,
             creationTime: new Date().toLocaleString(),
           }),
         })
@@ -78,14 +80,28 @@ const Register = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        toast.error("Somethink is happended!");
+        console.log(errorMessage);
+        toast.error(errorMessage.slice(22, -2));
+        setLoading(false);
       });
   };
 
   return (
     <section className="min-h-screen bg-base-300 flex items-center justify-center px-4">
-      <div className="max-w-6xl w-full grid md:grid-cols-2 bg-base-100 rounded-2xl shadow-2xl overflow-hidden">
+      <div className="max-w-6xl w-full flex flex-col lg:flex-row justify-center  bg-base-100 rounded-2xl shadow-2xl overflow-hidden">
         {/* Left Side - Form */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center  justify-center "
+        >
+          <div className="lg:w-full w-100">
+            <Lottie animationData={registerLottie} loop autoplay />
+          </div>
+        </motion.div>
+
+        {/* Right Side - Lottie */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -104,6 +120,7 @@ const Register = () => {
               <input
                 type="text"
                 name="name"
+                required
                 placeholder="Enter your full name"
                 className="input input-bordered w-full pl-10 focus:outline-0 "
               />
@@ -113,6 +130,7 @@ const Register = () => {
             <div className="relative">
               <MdEmail className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400 text-lg" />
               <input
+                required
                 type="email"
                 name="email"
                 placeholder="Enter your email"
@@ -125,6 +143,7 @@ const Register = () => {
               <RiLockPasswordLine className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400 text-lg" />
               <input
                 type="password"
+                required
                 name="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full pl-10 focus:outline-0"
@@ -135,16 +154,22 @@ const Register = () => {
             <div className="relative">
               <RiLockPasswordLine className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-gray-400 text-lg" />
               <input
+                required
                 type="password"
                 placeholder="Confirm your password"
                 className="input input-bordered w-full pl-10 focus:outline-0"
               />
             </div>
             <div className="relative">
+              <label for="fileUpload" className="text-sm">
+                Upload your photo
+              </label>
               <input
                 type="file"
+                id="fileUpload"
+                required
                 accept="image/*"
-                className="border w-full p-2 rounded border-gray-600 cursor-pointer"
+                className="border w-full p-2  rounded border-gray-600 cursor-pointer"
                 onChange={(e) => setPhoto(e.target.files[0])}
               />
             </div>
@@ -166,18 +191,6 @@ const Register = () => {
               </span>
             </Link>
           </p>
-        </motion.div>
-
-        {/* Right Side - Lottie */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="hidden md:flex items-center justify-center bg-base-300"
-        >
-          <div className="w-[420px]">
-            <Lottie animationData={registerLottie} loop autoplay />
-          </div>
         </motion.div>
       </div>
     </section>

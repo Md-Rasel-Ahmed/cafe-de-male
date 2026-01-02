@@ -7,6 +7,9 @@ import {
   MdOutlineMenuOpen,
 } from "react-icons/md";
 import { FaBoxOpen, FaClipboardList, FaUsersCog } from "react-icons/fa";
+import { FiPieChart } from "react-icons/fi";
+import { IoIosNotifications } from "react-icons/io";
+
 import { motion } from "framer-motion";
 
 export default function Dashboard() {
@@ -117,6 +120,30 @@ export default function Dashboard() {
                 <MdEventSeat size={25}></MdEventSeat>
                 <span className="is-drawer-close:hidden">
                   Manage Reservation
+                </span>
+              </button>
+            </NavLink>
+            <NavLink to={"reports"}>
+              <button
+                className="cursor-pointer is-drawer-close:tooltip is-drawer-close:tooltip-right border border-gray-400 p-1 flex items-center gap-2 text-lg font-bold rounded w-full"
+                data-tip="Reports & Analytics"
+              >
+                {/* Settings icon */}
+                <FiPieChart size={25}></FiPieChart>
+                <span className="is-drawer-close:hidden">
+                  Reports & Analytics
+                </span>
+              </button>
+            </NavLink>
+            <NavLink to={"mangeNotificatons"}>
+              <button
+                className="cursor-pointer is-drawer-close:tooltip is-drawer-close:tooltip-right border border-gray-400 p-1 flex items-center gap-2 text-lg font-bold rounded w-full"
+                data-tip="Manage Notifications"
+              >
+                {/* Settings icon */}
+                <IoIosNotifications size={25}></IoIosNotifications>
+                <span className="is-drawer-close:hidden">
+                  Manage Notications
                 </span>
               </button>
             </NavLink>

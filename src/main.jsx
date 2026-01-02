@@ -9,12 +9,12 @@ import AuthProvider from "./Providers/AuthProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <CartProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
+        <CartProvider>
           <Router></Router>
-        </BrowserRouter>
-      </CartProvider>
-    </AuthProvider>
+        </CartProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </StrictMode>
 );

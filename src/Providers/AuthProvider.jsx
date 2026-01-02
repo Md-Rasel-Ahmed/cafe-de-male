@@ -29,14 +29,14 @@ export default function AuthProvider({ children }) {
           .then((res) => res.json())
           .then((data) => {
             // const findUser = data?.find((u) => u.email === user?.email);
-            if (data.status === "blocked") {
-              setUser(null);
-              Swal.fire({
-                icon: "error",
-                title: "Sorry...",
-                text: "You can,t login because your are blocked user!",
-              });
-            }
+            // if (data.status === "blocked") {
+            //   setUser(null);
+            //   Swal.fire({
+            //     icon: "error",
+            //     title: "Sorry...",
+            //     text: "You can,t login because your are blocked user!",
+            //   });
+            // }
             setCreationTime(data.creationTime);
             setIsAdmin(data.role);
             setLoading(false);
@@ -46,7 +46,6 @@ export default function AuthProvider({ children }) {
       } else {
         setUser(null);
         // User is signed out
-        // console.log("fdhf", user);
         setLoading(false);
 
         // ...
@@ -64,27 +63,9 @@ export default function AuthProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   // login user
-  const loginUser = (email, password) => {
+  const loginUser = async (email, password) => {
     setLoading(true);
-    fetch(`${liveUrl}/users/${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        // const findUser = data?.find((u) => u.email === user?.email);
-        console.log(data);
-        if (data.status === "blocked") {
-          setLoading(false);
-          return Swal.fire({
-            icon: "error",
-            title: "Sorry...",
-            text: "You can,t login because your are blocked user!",
-          });
-        } else {
-          return signInWithEmailAndPassword(auth, email, password);
-        }
-        // setCreationTime(data.creationTime);
-        // setIsAdmin(data.role);
-        // setUsers(data);
-      });
+    return signInWithEmailAndPassword(auth, email, password);
   };
   // singout user
   const logOutUser = () => {
@@ -92,16 +73,8 @@ export default function AuthProvider({ children }) {
     return signOut(auth);
   };
   // Delete User form db
-  const deleteUserFromDB = () => {
-    deleteUser(user)
-      .then(() => {
-        // User deleted.
-        console.log("user Delete");
-      })
-      .catch((error) => {
-        // An error ocurred
-        // ...
-      });
+  const deleteUserFromFirebase = () => {
+    return deleteUser(user);
   };
   const authInfo = {
     user,
@@ -109,9 +82,10 @@ export default function AuthProvider({ children }) {
     logOutUser,
     loginUser,
     loading,
-    deleteUserFromDB,
+    deleteUserFromFirebase,
     isAdmin,
     creationTime,
+    setLoading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

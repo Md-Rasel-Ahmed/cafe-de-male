@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const images = [
   { id: 1, src: "https://i.ibb.co/dwBWNWzs/reshma.jpg", category: "Food" },
@@ -42,6 +43,15 @@ const itemVariants = {
 };
 
 const Gallery = () => {
+  const [gallaris, setGallaris] = useState([]);
+  useEffect(() => {
+    fetch("/gallary.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setGallaris(data);
+      });
+  }, []);
   return (
     <section className="py-20 bg-base-100">
       <div className="max-w-7xl mx-auto px-4">
@@ -63,12 +73,12 @@ const Gallery = () => {
         {/* Gallery Grid */}
         <motion.div
           variants={containerVariants}
-          initial="hidden"
+          // initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
         >
-          {images.map((item) => (
+          {gallaris?.map((item) => (
             <motion.div
               key={item.id}
               variants={itemVariants}
@@ -76,7 +86,7 @@ const Gallery = () => {
               className="relative overflow-hidden rounded-2xl shadow-lg group"
             >
               <img
-                src={item.src}
+                src={item.img}
                 alt="gallery"
                 className="w-full h-72 object-cover"
               />

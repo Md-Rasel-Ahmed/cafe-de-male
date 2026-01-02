@@ -1,7 +1,37 @@
 import { motion } from "framer-motion";
-import { FaUserCog, FaBell, FaLock, FaPalette, FaSave } from "react-icons/fa";
+import { useContext } from "react";
+import {
+  FaUserCog,
+  FaBell,
+  FaLock,
+  FaPalette,
+  FaSave,
+  FaTrash,
+} from "react-icons/fa";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 export default function Setting() {
+  const { deleteUserFromFirebase } = useContext(AuthContext);
+  const handleDeleteAccount = () => {
+    Swal.fire({
+      title: "Do you want to Delete your account?",
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Your account has been deleted permanenty!", "", "success");
+        deleteUserFromFirebase()
+          .then(() => {
+            // User deleted.
+          })
+          .catch((error) => {
+            toast.error(error);
+          });
+      }
+    });
+  };
   return (
     <div className="min-h-screen bg-base-200 px-4 py-8 flex justify-center">
       <motion.div
@@ -107,6 +137,15 @@ export default function Setting() {
         >
           <FaSave />
           Save Changes
+        </motion.button>
+        <motion.button
+          onClick={handleDeleteAccount}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
+          className="btn btn-error text-white w-full flex items-center gap-2"
+        >
+          <FaTrash />
+          Delete Account
         </motion.button>
       </motion.div>
     </div>

@@ -6,6 +6,7 @@ import { CiSearch } from "react-icons/ci";
 
 import { FaCartArrowDown } from "react-icons/fa";
 import { CartProviderContext } from "./../Providers/CartProvider";
+import CategorySkeleton from "../Shared/CategorySkeleton";
 const beverage = [
   {
     id: 2,
@@ -84,7 +85,7 @@ export default function Menus() {
   const [catagoris, setCatagoris] = useState([]);
   const [menus, setMenus] = useState(beverage);
   const [loading, setLoading] = useState(true);
-  const [searchText, setSearchText] = useState("fdsf");
+  const [searchText, setSearchText] = useState("");
   const [clickBtn, setClickBtn] = useState("Beverages");
   const { cartAdded } = useContext(CartProviderContext);
   const navigate = useNavigate();
@@ -150,21 +151,18 @@ export default function Menus() {
     // console.log(a);
   };
   return (
-    <div
-      className="min-h-screen justify-center bg-cover bg-base-300 "
-      style={{
-        backgroundImage: "url(./menu-img.jpg)",
-      }}
-    >
+    <div className="min-h-screen justify-center bg-cover bg-base-300 ">
       <div
-        className="menu-content h-full"
-        // style={{
-        //   backgroundImage: "url(https://i.ibb.co/GvZvgrp7/bg.webp)",
-        // }}
+        className="menu-content h-100 w-full py-10"
+        style={{
+          backgroundImage: "url(https://i.ibb.co/YwbGKbC/menus-Banner.jpg)",
+          backgroundPosition: "right center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
       >
-        <h1 className="text-center text-xl font-bold py-5">Menus</h1>
         <h1 className="text-8xl font-bold text-center py-5">
-          Discover Our menu
+          Discover Our menus
         </h1>
         <div className="w-100 mx-auto">
           <p className="text-center text-xl">
@@ -175,7 +173,7 @@ export default function Menus() {
       </div>
       <div className="menus  py-5 bg-base-300 p-5 mt-5">
         <h1 className="text-xl font-bold text-center py-2">Categoris</h1>
-        <div className="menu-cetagory  w-full    gap-1 text-2xl justify-center">
+        {/* <div className="menu-cetagory  w-full    gap-1 text-2xl justify-center">
           {catagoris?.map((catagory) => (
             <motion.button
               onClick={(e) => handleClick(catagory.name, e)}
@@ -187,20 +185,53 @@ export default function Menus() {
               {catagory.name}
             </motion.button>
           ))}
-          {/* <NavLink className="p-2 rounded" to={"all-dishes"}>
-            All Dishes
-          </NavLink>
-          <NavLink className="p-2 rounded" to={"dishes"}>
-            Dishes
-            </NavLink>
-          <NavLink className="p-2 rounded" to={"desserts"}>
-            Desserts
-            </NavLink>
-            <NavLink className="p-2 rounded" to={"drinks"}>
-            Drinks
-            </NavLink> */}
+        </div> */}
+        <div className=" bg-base-100 border-b">
+          {catagoris?.length === 0 ? (
+            <CategorySkeleton />
+          ) : (
+            <div
+              className="
+        menu-cetagory
+        w-full
+        flex
+        gap-2
+        overflow-x-auto
+        px-3
+        py-3
+        scrollbar-hide
+
+        md:justify-center
+        md:flex-wrap
+        md:overflow-visible
+      "
+            >
+              {catagoris.map((catagory) => (
+                <motion.button
+                  key={catagory.id}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={(e) => handleClick(catagory.name, e)}
+                  className={`
+            btn
+            btn-sm
+            rounded-full
+            whitespace-nowrap
+            border
+            ${
+              clickBtn === catagory.name
+                ? "btn-secondary text-white"
+                : "bg-base-100 hover:bg-secondary hover:text-white"
+            }
+          `}
+                >
+                  {catagory.name}
+                </motion.button>
+              ))}
+            </div>
+          )}
         </div>
-        <div className="flex justify-center">
+
+        <div className="flex justify-center mt-5">
           <div className="join">
             <div>
               <label className="input validator join-item">

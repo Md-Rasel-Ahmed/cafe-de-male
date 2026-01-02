@@ -28,11 +28,9 @@ const CheckOut = () => {
     });
     // toast.success("");
   };
-  const navigate = useNavigate();
   const placeOrder = () => {
     if (number && adress) {
       orderAdd();
-      navigate("/thank");
     } else {
       toast.error("Please provide adress!");
     }
@@ -75,30 +73,41 @@ const CheckOut = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
-              className="flex items-center justify-between border rounded-lg p-4 hover:shadow-lg transition-shadow duration-200"
+              className="flex flex-col md:flex-row  justify-between border rounded-lg p-4 hover:shadow-lg transition-shadow duration-200"
             >
               <div className="flex items-center space-x-4">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-20 h-20 rounded-lg object-cover"
-                />
+                <div className="avatar">
+                  <div className="w-24 rounded-full md:rounded">
+                    <img src={item.img} alt={item.name} className="" />{" "}
+                  </div>
+                </div>
+
                 <div>
-                  <h3 className="font-semibold text-lg">{item.name}</h3>
-                  <p className="text-gray-500">
-                    <button className="btn">-</button> {item.quantity}
-                    <button
-                      className="btn"
-                      onClick={() => incresQuantity(item.id)}
-                    >
-                      +
-                    </button>{" "}
-                    x MVR {item.price.toFixed(2)}
-                  </p>
+                  <h3 className="font-semibold text-sm md:text-lg">
+                    {item.name}
+                  </h3>
+                  <div className="text-gray-500 flex items-center gap-1 text-sm md:text-lg">
+                    <div className="bg-gray-300 rounded-lg flex gap-1 justify-around">
+                      <button className="btn btn-sm md:btn-md p-2 ">
+                        {" "}
+                        <span className="text-lg"> -</span>
+                      </button>{" "}
+                      <span className="text-red-500 text-lg font-bold ">
+                        {item.quantity}
+                      </span>
+                      <button
+                        className="btn btn-sm md:btn-md p-2 "
+                        onClick={() => incresQuantity(item.id)}
+                      >
+                        <span className="text-lg"> +</span>
+                      </button>{" "}
+                    </div>
+                    <p>x MVR {item.price.toFixed(2)}</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <span className="font-bold text-lg">
+              <div className="flex self-end md:self-center space-x-3">
+                <span className="font-bold md:text-lg text-sm">
                   MVR {(item.price * item.quantity).toFixed(2)}
                 </span>
                 <button
@@ -158,7 +167,7 @@ const CheckOut = () => {
               placeholder="Address"
               value={adress}
               onChange={(e) => setAdress(e.target.value)}
-              className="input input-bordered w-full col-span-2"
+              className="input input-bordered w-full sm:col-span-2  col-span-1"
             />
             <input
               type="text"

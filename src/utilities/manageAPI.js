@@ -7,7 +7,7 @@ const getData = (apiName, changeFn) => {
   fetch(`${liveUrl}/${apiName}`)
     .then((res) => res.json())
     .then((data) => {
-      changeFn(data);
+      changeFn(data.reverse());
       console.log(data);
     });
 };
@@ -55,6 +55,10 @@ const updateData = (id, status, stodedData, changeFn, apiName) => {
       // console.log(data);
       const findData = stodedData?.find((order) => order._id === id);
       if (apiName === "orders") {
+        findData.status = status;
+        // console.log(findData);
+      }
+      if (apiName === "reservation") {
         findData.status = status;
         // console.log(findData);
       }

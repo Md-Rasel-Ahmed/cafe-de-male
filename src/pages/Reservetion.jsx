@@ -2,7 +2,56 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import { FaCalendarAlt, FaUserFriends, FaClock } from "react-icons/fa";
 import reservationLottie from "./reservation.json";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 const Reservetion = () => {
+  const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  // handle reservaton
+  const handleReservation = (e) => {
+    setLoading(true);
+    e.preventDefault();
+    const form = e.target;
+    const date = form.date.value;
+    const time = form.time.value;
+    const guests = form.guests.value;
+    if (date || time || guests) {
+      fetch("https://cafe-de-male-server.onrender.com/api/reservation", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          date,
+          time,
+          guests,
+          user: user?.displayName,
+          status: "Pending",
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setLoading(false);
+          if (data.insertedId) {
+            form.reset();
+            Swal.fire({
+              title: "Reservation has been successfully placed!",
+              icon: "success",
+              draggable: true,
+            });
+          }
+        })
+        .catch((err) => {
+          setLoading(false);
+        });
+    } else {
+      return toast.error("Pleser provide values!");
+    }
+
+    // console.log(date, time, guests);
+  };
   return (
     <section className="py-24 bg-[url('/src/assets/reservation-bg.jpg')] bg-cover bg-center relative">
       {/* Overlay */}
@@ -44,12 +93,16 @@ const Reservetion = () => {
               <div className="text-center lg:text-left  w-70 lg:w-100">
                 <Lottie animationData={reservationLottie} loop={true}></Lottie>
               </div>
-              <form className="flex flex-col gap-6 w-70 ;g:w-100">
+              <form
+                onSubmit={handleReservation}
+                className="flex flex-col gap-6 w-70 ;g:w-100"
+              >
                 {/* Date */}
                 <div className="relative">
                   <FaCalendarAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-primary" />
                   <input
                     type="date"
+                    name="date"
                     className="input input-bordered w-full pl-10"
                     required
                   />
@@ -60,6 +113,7 @@ const Reservetion = () => {
                   <FaClock className="absolute left-3 top-1/2 -translate-y-1/2 text-primary" />
                   <input
                     type="time"
+                    name="time"
                     className="input input-bordered w-full pl-10"
                     required
                   />
@@ -69,6 +123,7 @@ const Reservetion = () => {
                 <div className="relative">
                   <FaUserFriends className="absolute left-3 top-1/2 -translate-y-1/2 text-primary" />
                   <select
+                    name="guests"
                     className="select select-bordered w-full pl-10"
                     required
                   >
@@ -86,7 +141,12 @@ const Reservetion = () => {
                 {/* Button */}
                 <div className="md:col-span-3 mt-4">
                   <button className="btn btn-primary btn-lg w-full tracking-wide">
-                    Book a Table
+                    {" "}
+                    {loading ? (
+                      <span className="loading loading-spinner loading-md"></span>
+                    ) : (
+                      " Book a Table"
+                    )}
                   </button>
                 </div>
               </form>

@@ -5,6 +5,7 @@ import { CartProviderContext } from "../Providers/CartProvider";
 import { AuthContext } from "../Providers/AuthProvider";
 import moment from "moment/moment";
 import Loading from "../Shared/Loading";
+import { Link } from "react-router";
 
 const statusBadge = {
   Pending: "badge-warning",
@@ -19,14 +20,28 @@ export default function Orders() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${liveUrl}/orders?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setOrders(data);
+    const loadOrders = async () => {
+      try {
+        const res = await fetch(`${liveUrl}/orders?email=${user?.email}`);
+
+        if (!res.ok) {
+          throw new Error("Server error");
+        }
+
+        const data = await res.json();
+        setOrders(data.reverse());
+      } catch (error) {
+        console.log(error.message);
+      } finally {
         setLoading(false);
-        console.log(data);
-      });
+      }
+    };
+
+    if (user?.email) {
+      loadOrders();
+    }
   }, [user?.email]);
+
   // const date = new Date().toLocaleTimeString();
   // console.log(date);
   if (loading) return <Loading></Loading>;
@@ -43,7 +58,7 @@ export default function Orders() {
         <h2 className="text-2xl font-bold">My Orders</h2>
         <h2 className="text-2xl font-bold"></h2>
       </div>
-      {orders?.length < 0 ? (
+      {orders?.length <= 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -61,11 +76,13 @@ export default function Orders() {
             first order!
           </p>
 
-          <button className="btn btn-primary mt-6">Browse Menu</button>
+          <Link to={"/menus"}>
+            <button className="btn btn-primary mt-6">Browse Menu</button>
+          </Link>
         </div>
       ) : (
         <div className="space-y-4">
-          {orders?.map((order, index) => (
+          {orders?.reverse()?.map((order, index) => (
             <motion.div
               key={order._id}
               initial={{ opacity: 0 }}

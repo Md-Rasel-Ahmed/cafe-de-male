@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router";
 import MainLayOut from "../Layouts/MainLayOut";
 import Contact from "../pages/Contact";
@@ -26,6 +26,8 @@ import UserInfo from "../pages/UserInfo/UsersInfo";
 import Profile from "../pages/UserInfo/Profile";
 import Setting from "../pages/UserInfo/Setting";
 import AdminRouter from "../Providers/AdminRouter";
+import MangeNotifications from "../Admin/MangeNotificatons";
+import Reports from "../Admin/Reports";
 
 export default function Router() {
   return (
@@ -111,6 +113,11 @@ export default function Router() {
             path="manageitems"
             element={<ManageItems></ManageItems>}
           ></Route>
+          <Route
+            path="mangeNotificatons"
+            element={<MangeNotifications></MangeNotifications>}
+          ></Route>
+          <Route path="reports" element={<Reports></Reports>}></Route>
           <Route
             path="manageorders"
             element={<ManageOrders></ManageOrders>}

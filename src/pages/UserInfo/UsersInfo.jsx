@@ -1,7 +1,12 @@
 import React from "react";
 import OnlineOrders from "../OnlineOrders";
 import { Link, NavLink, Outlet, useLocation } from "react-router";
-import { MdEventSeat, MdManageAccounts } from "react-icons/md";
+import {
+  MdEventSeat,
+  MdManageAccounts,
+  MdOutlineEventSeat,
+  MdOutlineMenuOpen,
+} from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { IoIosSettings } from "react-icons/io";
 
@@ -9,7 +14,7 @@ import { motion } from "framer-motion";
 
 export default function UserInfo() {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   return (
     <div className="drawer lg:drawer-open">
@@ -23,20 +28,7 @@ export default function UserInfo() {
             className="btn btn-square btn-ghost"
           >
             {/* Sidebar toggle icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2"
-              fill="none"
-              stroke="currentColor"
-              className="my-1.5 inline-block size-4"
-            >
-              <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
-              <path d="M9 4v16"></path>
-              <path d="M14 10l2 2l-2 2"></path>
-            </svg>{" "}
+            <MdOutlineMenuOpen size={32} />
           </label>
           <div className="px-4">{location.pathname}</div>
         </nav>
@@ -86,6 +78,16 @@ export default function UserInfo() {
                 <IoIosSettings size={25} />
 
                 <span className="is-drawer-close:hidden">Setting</span>
+              </button>
+            </NavLink>
+            <NavLink to={"managereservation"}>
+              <button
+                className="cursor-pointer is-drawer-close:tooltip is-drawer-close:tooltip-right border border-gray-400 p-1 flex items-center gap-2 text-lg font-bold rounded w-full"
+                data-tip="Manage Reservation"
+              >
+                {/* Settings icon */}
+                <MdOutlineEventSeat size={25}></MdOutlineEventSeat>
+                <span className="is-drawer-close:hidden">My Reservations</span>
               </button>
             </NavLink>
           </ul>

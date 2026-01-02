@@ -3,12 +3,10 @@ import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 export default function HomeBanner() {
   return (
-    <div
-      className="hero min-h-screen"
-      style={{
-        backgroundImage: "url(https://i.ibb.co/GvZvgrp7/bg.webp)",
-      }}
-    >
+    <div className="hero min-h-screen">
+      <video autoPlay loop muted playsInline height={400}>
+        <source src="banner-video.mp4" type="video/mp4" />
+      </video>
       <div className="hero-overlay"></div>
       <div className="hero-content text-neutral-content text-center flex lg:flex-row flex-col justify-between">
         <div className="max-w-md">

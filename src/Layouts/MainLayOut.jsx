@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../pages/home/Navbar";
 import { Outlet } from "react-router";
 import Footer from "../pages/home/Footer";

@@ -27,10 +27,22 @@ const apiName = "users";
 export default function ManageUsers() {
   const [users, setUsers] = useState([]);
   const [toggleS, setToggleS] = useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
   const { deleteUserFromDB, isAdmin, user: dbUser } = useContext(AuthContext);
 
   useEffect(() => {
     getData(apiName, setUsers);
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
   }, []);
 
   const handleRoleChange = (id, newRole) => {
@@ -69,7 +81,7 @@ export default function ManageUsers() {
   const handleUserDelete = (id) => {
     deleteData(id, users, setUsers, "user", apiName);
   };
-
+  console.log(isOnline);
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -106,7 +118,17 @@ export default function ManageUsers() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <td>{index + 1}</td>
+                <td>
+                  <div
+                    className={`avatar ${
+                      isOnline ? "avatar-online" : "avatar-offline"
+                    }`}
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src={user?.userPhoto} />
+                    </div>
+                  </div>
+                </td>
 
                 <td className="font-medium">{user.name}</td>
 

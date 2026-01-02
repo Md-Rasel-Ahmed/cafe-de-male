@@ -14,8 +14,8 @@ export default function Thank() {
       <div className="card bg-base-100 shadow-xl max-w-md w-full text-center">
         <div className="card-body">
           {/* Lottie */}
-          <div className="w-48 mx-auto">
-            <Lottie animationData={successAnimation} loop={false} />
+          <div className=" mx-auto">
+            <Lottie animationData={successAnimation} loop autoplay />
           </div>
 
           {/* Text */}

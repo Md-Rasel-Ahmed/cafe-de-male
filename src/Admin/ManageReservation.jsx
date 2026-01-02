@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   MdEventSeat,
   MdCancel,
@@ -6,47 +6,39 @@ import {
   MdVisibility,
 } from "react-icons/md";
 import { motion } from "framer-motion";
-
-const initialReservations = [
-  {
-    id: 1,
-    name: "Rasel Ahmed",
-    date: "2025-01-15",
-    time: "7:30 PM",
-    guests: 4,
-    status: "Pending",
-  },
-  {
-    id: 2,
-    name: "Nahida",
-    date: "2025-01-16",
-    time: "8:00 PM",
-    guests: 2,
-    status: "Confirmed",
-  },
-  {
-    id: 3,
-    name: "Abdur Rahman",
-    date: "2025-01-17",
-    time: "6:45 PM",
-    guests: 6,
-    status: "Cancelled",
-  },
-];
+import { deleteData, updateData } from "../utilities/manageAPI";
+import Loading from "../Shared/Loading";
 
 const statusBadge = {
   Pending: "badge-warning",
   Confirmed: "badge-success",
   Cancelled: "badge-error",
 };
-
+const apiName = "reservation";
 export default function ManageReservation() {
-  const [reservations, setReservations] = useState(initialReservations);
-
+  const [reservations, setReservations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch("https://cafe-de-male-server.onrender.com/api/reservation")
+      .then((res) => res.json())
+      .then((data) => {
+        setReservations(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, []);
+  if (loading) {
+    return <Loading></Loading>;
+  }
   const handleStatusChange = (id, newStatus) => {
-    setReservations((prev) =>
-      prev.map((r) => (r.id === id ? { ...r, status: newStatus } : r))
-    );
+    updateData(id, newStatus, reservations, setReservations, apiName);
+  };
+  // handle order delete by id
+  const handleOrderDelete = (id) => {
+    deleteData(id, reservations, setReservations, "Reservation", apiName);
   };
 
   return (
@@ -80,13 +72,13 @@ export default function ManageReservation() {
           <tbody>
             {reservations.map((res, index) => (
               <motion.tr
-                key={res.id}
+                key={res._id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <td>{index + 1}</td>
-                <td className="font-medium">{res.name}</td>
+                <td className="font-medium">{res.user}</td>
                 <td>{res.date}</td>
                 <td>{res.time}</td>
                 <td>{res.guests}</td>
@@ -102,7 +94,7 @@ export default function ManageReservation() {
                       className="select select-xs select-bordered"
                       value={res.status}
                       onChange={(e) =>
-                        handleStatusChange(res.id, e.target.value)
+                        handleStatusChange(res._id, e.target.value)
                       }
                     >
                       <option value="Pending">Pending</option>
@@ -122,7 +114,10 @@ export default function ManageReservation() {
                     <MdCheckCircle />
                   </button>
 
-                  <button className="btn btn-xs btn-outline btn-error">
+                  <button
+                    onClick={() => handleOrderDelete(res._id)}
+                    className="btn btn-xs btn-outline btn-error"
+                  >
                     <MdCancel />
                   </button>
                 </td>

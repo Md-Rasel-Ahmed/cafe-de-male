@@ -3,11 +3,32 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 import { CartProviderContext } from "../../Providers/CartProvider";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { MdOutlineMarkEmailRead } from "react-icons/md";
+
+import {
+  IoMailUnreadSharp,
+  IoNotificationsCircleSharp,
+  IoNotificationsOff,
+} from "react-icons/io5";
+import {
+  collection,
+  addDoc,
+  query,
+  onSnapshot,
+  updateDoc,
+  doc,
+  deleteDoc,
+  orderBy,
+  serverTimestamp,
+} from "firebase/firestore";
 import { toast } from "react-toastify";
+import { firestore } from "../../../firebase";
+import moment from "moment/moment";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [notifications, setNotifications] = useState([]);
   const { carts, lsCarts } = useContext(CartProviderContext);
 
   const [scrollUpDistance, setScrollUpDistance] = useState(0);
@@ -37,7 +58,23 @@ const Navbar = () => {
 
     setLastScrollY(currentScrollY);
   };
+  const notificationsRef = collection(firestore, "notifications");
+  const notificationsQuery = query(
+    notificationsRef,
+    orderBy("createdAt", "desc")
+  );
+  // Real-time listener
+  useEffect(() => {
+    const unsubscribe = onSnapshot(notificationsQuery, (snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setNotifications(data);
+    });
 
+    return () => unsubscribe();
+  }, [notificationsQuery]);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -60,6 +97,11 @@ const Navbar = () => {
   };
   // console.log(lsCarts);
 
+  // handle unread sms
+  const handleUnReadMessage = async (id) => {
+    const docRef = doc(firestore, "notifications", id);
+    await updateDoc(docRef, { read: true });
+  };
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50  transition-transform duration-300
@@ -70,7 +112,10 @@ const Navbar = () => {
         <div className="navbar-start">
           {/* Mobile Menu */}
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost lg:hidden  hover:bg-primary  "
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-8 w-8"
@@ -152,7 +197,7 @@ const Navbar = () => {
             <li className="text-xl">
               <NavLink to="/contact">Contact</NavLink>
             </li>
-            <li className="text-xl">
+            <li className="text-xl ">
               <NavLink to="/gallery">Gallery</NavLink>
             </li>
           </ul>
@@ -160,14 +205,64 @@ const Navbar = () => {
 
         {/* Right */}
         <div className="navbar-end gap-3">
+          {/* notifications */}
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle  hover:bg-primary rounded-2xl "
+            >
+              <div className="indicator  ">
+                <IoNotificationsCircleSharp
+                  size={36}
+                ></IoNotificationsCircleSharp>
+                {/* <span className="badge badge-sm indicator-item bg-primary">
+                  {notifications?.filter((noti) => noti.read === false).length}
+                </span> */}
+              </div>
+            </div>
+            <div
+              tabIndex={0}
+              className="card card-compact dropdown-content bg-primary z-1 mt-3 w-80 shadow"
+            >
+              <div className="card-body">
+                {notifications?.length <= 0 ? (
+                  <div className="flex flex-col justify-center items-center gap-2">
+                    <IoNotificationsOff size={70} />
+                    <h1>No Notificatons for you</h1>
+                  </div>
+                ) : (
+                  <div>
+                    <h1 className="text-bold text-center">Notifications</h1>
+                    <ul>
+                      {notifications?.map((noti) => (
+                        <div className="p-1 mt-2   bg-gray-300 rounded">
+                          <p className="text-primary text-sm">
+                            {moment(
+                              noti?.createdAt?.toDate().toLocaleString()
+                            ).fromNow()}
+                          </p>
+                          <li className=" text-base-300 flex justify-between items-center  ">
+                            <span className="font-bold text-sm">
+                              {noti.message}
+                            </span>
+                          </li>
+                        </div>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
           {/* Cart */}
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle"
+              className="btn btn-ghost btn-circle  hover:bg-primary rounded-2xl "
             >
-              <div className="indicator">
+              <div className="indicator  ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-7 w-7"

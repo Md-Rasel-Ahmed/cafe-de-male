@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 import moment from "moment";
 import { setData } from "../utilities/localStoreDb";
+import { useNavigate } from "react-router";
 export const CartProviderContext = createContext(null);
 const liveUrl = "https://cafe-de-male-server.onrender.com/api";
 const localUrl = "http://localhost:5000/api";
@@ -12,6 +13,8 @@ export default function CartProvider({ children }) {
   const [lsCarts, setLsCarts] = useState();
   const [orders, setOrders] = useState([]);
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const data = localStorage.getItem("cart");
     setLsCarts(data);
@@ -47,6 +50,7 @@ export default function CartProvider({ children }) {
     setTotal(newTotal);
     // console.log(total);
   };
+
   // order added
   const orderAdd = () => {
     const items = [];
@@ -59,6 +63,8 @@ export default function CartProvider({ children }) {
       date: moment().format("MMMM Do YYYY, h:mm:ss a"),
       items: items,
       total: total,
+      day: new Date().toLocaleDateString("en-US", { weekday: "long" }),
+      month: moment().format("MMM"),
       status: "Pending",
       email: user?.email,
     };
@@ -74,7 +80,12 @@ export default function CartProvider({ children }) {
       .then((data) => {
         if (data.insertedId) {
           setCarts([]);
+          navigate("/thank");
+          console.log("onno page a niye jabo");
         }
+      })
+      .catch(() => {
+        toast.error("Somethink was happend!");
       });
   };
 
