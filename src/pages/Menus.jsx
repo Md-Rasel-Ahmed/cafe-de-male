@@ -269,6 +269,7 @@ export default function Menus() {
         >
           {menus?.map((menu) => (
             <motion.div
+              key={menu.id}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}

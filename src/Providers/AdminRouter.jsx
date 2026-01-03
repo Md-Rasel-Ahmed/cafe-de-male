@@ -14,19 +14,21 @@ export default function AdminRouter({ children }) {
       .then((data) => {
         const findAdmin = data?.find((u) => u.email === user?.email);
         setUsers(findAdmin);
+        if (findAdmin?.role === "admin") {
+          return children;
+        } else {
+          navigate("/profile");
+        }
       });
-  }, [user?.email]);
-
-  //   const location = useLocation();
+  }, [user?.email, children, navigate]);
+  if (loading)
+    return (
+      <div className="mt-10 min-h-screen flex justify-center items-center">
+        <span className="loading loading-bars loading-xl text-[#F43098]"></span>
+      </div>
+    );
+  //   const location = useLocation();\
   if (users?.role === "admin") {
     return children;
-  } else {
-    navigate("/profile");
   }
-  //   if (loading)
-  //     return (
-  //       <div className="mt-10 min-h-screen flex justify-center items-center">
-  //         <span className="loading loading-bars loading-xl text-[#F43098]"></span>
-  //       </div>
-  //     );
 }

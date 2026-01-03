@@ -113,7 +113,7 @@ export default function ManageUsers() {
             {users.map((user, index) => (
               <motion.tr
                 className=""
-                key={user.id}
+                key={user._id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 }}

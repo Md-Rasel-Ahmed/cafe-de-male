@@ -4,13 +4,14 @@
     "name": "Maldivian roshi & mashuni",
     "price": 61.88,
     "description": "",
+    "quantity":1,
     "img": "https://via.placeholder.com/400x300?text=Maldivian+Roshi+Mashuni",
     "status": "available"
   },
   {
     "id": 2,
     "name": "Mas riha and Roshi",
-    "price": 68.0,
+    "price": 68.0,"quantity":1,
     "description": "",
     "img": "https://via.placeholder.com/400x300?text=Mas+Riha+Roshi",
     "status": "unavailable"
@@ -18,7 +19,7 @@
   {
     "id": 3,
     "name": "Maldivian kulhimas and Roshi",
-    "price": 61.88,
+    "price": 61.88,"quantity":1,
     "description": "",
     "img": "https://via.placeholder.com/400x300?text=Kulhimas+Roshi",
     "status": "available"
@@ -26,7 +27,7 @@
   {
     "id": 4,
     "name": "Disk & kulhimas",
-    "price": 61.83,
+    "price": 61.83,"quantity":1,
     "description": "",
     "img": "https://via.placeholder.com/400x300?text=Disk+Kulhimas",
     "status": "available"

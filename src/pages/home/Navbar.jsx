@@ -24,6 +24,7 @@ import {
 import { toast } from "react-toastify";
 import moment from "moment/moment";
 import { firestore } from "../../../firebase.init";
+import { getData } from "../../utilities/localStoreDb";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -82,7 +83,10 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
-
+  useEffect(() => {
+    const getLsData = getData();
+    // console.log(getLsData, carts);
+  });
   const totalPrice = carts.reduce((total, item) => total + item.price, 0);
   // logut user
   const handleLogOut = () => {
@@ -334,7 +338,7 @@ const Navbar = () => {
                     {isAdmin === "admin" && (
                       <Link
                         className="bg-gray-300 p-1 rounded hover:bg-secondary text-black"
-                        to={"/dashboard"}
+                        to={"/dashboard/reports"}
                       >
                         Dashboard
                       </Link>

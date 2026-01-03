@@ -13,4 +13,10 @@ const setData = (id) => {
   storedData.push(id);
   localStorage.setItem("cart", JSON.stringify(storedData));
 };
-export { getData, setData };
+
+const deleteDataFromLs = (id) => {
+  let storedData = getData();
+  let filterData = storedData.filter((data) => data !== id);
+  localStorage.setItem("cart", JSON.stringify(filterData));
+};
+export { getData, setData, deleteDataFromLs };

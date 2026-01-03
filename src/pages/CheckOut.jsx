@@ -54,7 +54,7 @@ const CheckOut = () => {
   // console.log("outside", carts);
   const totalPrice = updateCarts.reduce((total, item) => total + item.price, 0);
   // console.log(totalPrice, updateCarts);
-  console.log(carts.length);
+  console.log(carts);
 
   return (
     <div className="min-h-screen flex justify-center items-start p-6">

@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 import moment from "moment";
-import { setData } from "../utilities/localStoreDb";
+import { deleteDataFromLs, getData, setData } from "../utilities/localStoreDb";
 import { useNavigate } from "react-router";
 export const CartProviderContext = createContext(null);
 const liveUrl = "https://cafe-de-male-server.onrender.com/api";
@@ -16,15 +16,30 @@ export default function CartProvider({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const data = localStorage.getItem("cart");
-    setLsCarts(data);
+    const lsData = getData();
+    fetch("/menus.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const filterData = lsData.map((menu) => {
+          return data.find((m) => m.id === menu);
+        });
+        setCarts(filterData);
+        const newTotal = filterData.reduce(
+          (prev, curr) => prev + curr.price,
+          0
+        );
+        setTotal(newTotal);
+      });
   }, []);
   const cartAdded = (menu) => {
     const id = menu.id;
     const findItem = carts.find((cart) => cart.id == id);
+    console.log(findItem);
 
     if (findItem) return toast.error("The food already exited!");
+
     setCarts([...carts, menu]);
+    console.log(carts);
     const newTotal = total + parseFloat(menu.price);
     setTotal(newTotal);
     toast.success(`${menu.name} Added To Cart!`);
@@ -40,6 +55,7 @@ export default function CartProvider({ children }) {
 
     setTotal(newTotal);
     setCarts(remaining);
+    deleteDataFromLs(id);
   };
   // inress price
   const incress = (id) => {
@@ -80,6 +96,7 @@ export default function CartProvider({ children }) {
       .then((data) => {
         if (data.insertedId) {
           setCarts([]);
+          localStorage.removeItem("cart");
           navigate("/thank");
           console.log("onno page a niye jabo");
         }
